@@ -1,530 +1,324 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Международная школа терапевтического вокала Рады Аубакировой</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Международная школа терапевтического вокала — Рада Аубакирова</title>
 
-    <!-- Подключаем аккуратные шрифты: заголовки — Montserrat, текст — Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Стили для премиального header и hero -->
-    <style>
-        /* Premium Header Styles */
-        .rv-header {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-
-        .rv-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .rv-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
-            text-decoration: none;
-        }
-
-        .rv-nav {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .rv-nav a {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            color: #2c3e50;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 6px;
-        }
-
-        .rv-nav a:hover {
-            color: #8a2be2;
-            background: rgba(138, 43, 226, 0.05);
-        }
-
-        .rv-nav .rv-cta {
-            background: linear-gradient(135deg, #8a2be2, #4b0082);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .rv-nav .rv-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.3);
-            background: linear-gradient(135deg, #9b40ff, #5a00a3);
-            color: white;
-        }
-
-        .rv-burger {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: #2c3e50;
-            padding: 5px;
-        }
-
-        .rv-mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            flex-direction: column;
-            gap: 15px;
-            z-index: 999;
-        }
-
-        .rv-mobile-menu a {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            color: #2c3e50;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .rv-mobile-menu a:hover {
-            background: rgba(138, 43, 226, 0.08);
-            color: #8a2be2;
-        }
-
-        .rv-mobile-menu .rv-cta {
-            background: linear-gradient(135deg, #8a2be2, #4b0082);
-            color: white;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* Премиальный Hero Block */
-        .hero-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 30px;
-            display: block;
-            border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Стили для премиум-плашек - НОВЫЕ */
-        .premium-benefits {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 30px 0;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .premium-benefits .benefit-item {
-            background: white;
-            padding: 18px 24px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid rgba(180, 140, 60, 0.3);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            font-weight: 500;
-            color: #3A302A;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .premium-benefits .benefit-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-            border-color: rgba(180, 140, 60, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .premium-benefits .benefit-item {
-                font-size: 16px;
-                padding: 16px 20px;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .rv-nav {
-                gap: 15px;
-            }
-            
-            .rv-nav a {
-                font-size: 14px;
-                padding: 6px 12px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .rv-nav {
-                display: none;
-            }
-            
-            .rv-burger {
-                display: block;
-            }
-            
-            .rv-mobile-menu.active {
-                display: flex;
-            }
-            
-            .hero-logo {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 20px;
-            }
-        }
-
-        /* Adjust body padding to prevent content from hiding under fixed header */
-        body {
-            padding-top: 80px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Premium Header -->
-    <header class="rv-header">
-        <div class="rv-container">
-            <div class="rv-logo">
-                <!-- Замените на SVG логотип после готовности -->
-                <span>Rada Vocal</span>
-            </div>
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="wrap">
+      <a class="brand" href="#hero" aria-label="Rada Vocal">
+        <img src="logo.png" alt="Rada Vocal" class="brand-logo">
+      </a>
 
-            <nav class="rv-nav">
-                <a href="#courses">Курсы</a>
-                <a href="#games">Игры</a>
-                <a href="#about">О школе</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact" class="rv-cta">Записаться</a>
-            </nav>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#courses">Курсы</a>
+        <a href="#games">Игры</a>
+        <a href="#about">О Раде</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn-cta">Записаться</a>
+      </nav>
 
-            <div class="rv-burger" id="burgerBtn">&#9776;</div>
-        </div>
+      <button id="burger" class="burger" aria-label="Меню" aria-expanded="false">
+        <span class="burger-lines"></span>
+      </button>
+    </div>
 
-        <div class="rv-mobile-menu" id="mobileMenu">
-            <a href="#courses">Курсы</a>
-            <a href="#games">Игры</a>
-            <a href="#about">О школе</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact" class="rv-cta">Записаться</a>
-        </div>
-    </header>
+    <!-- Mobile menu (overlay) -->
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <a href="#courses">Курсы</a>
+      <a href="#games">Игры</a>
+      <a href="#about">О Раде</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn-cta">Записаться</a>
+    </div>
+  </header>
 
-    <!-- Hero Section - Обновлённый премиальный блок -->
-    <section class="hero">
-        <img src="logo.png" alt="Rada Vocal Logo" class="hero-logo">
+  <!-- HERO -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-inner">
+        <img src="logo.png" alt="Логотип Rada Vocal" class="hero-logo" width="200" height="200">
+        <h1 class="hero-title">Путь к вашему настоящему голосу, свободе и силе звучания</h1>
+        <p class="hero-sub">Голос, который услышат. Уверенность. Сцена. Признание.</p>
 
-        <h1 class="hero-title">
-            Путь к вашему настоящему голосу, свободе<br> и силе звучания
-        </h1>
-
-        <p class="hero-subtitle">
-            Голос, который услышат. Уверенность. Сцена. Признание.
-        </p>
-
-        <!-- Заменённый блок с премиум-плашками -->
         <div class="premium-benefits">
-            <div class="benefit-item">Освобождение голоса</div>
-            <div class="benefit-item">Уверенность в себе</div>
-            <div class="benefit-item">Сценическая свобода</div>
+          <div class="benefit">Освобождение голоса</div>
+          <div class="benefit">Уверенность в себе</div>
+          <div class="benefit">Сценическая свобода</div>
         </div>
 
-        <button class="cta-button">Записаться</button>
+        <div class="hero-actions">
+          <a class="btn-cta large" href="#contact">Записаться</a>
+          <a class="btn-ghost" href="#about">Узнать о методике</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Voice Studio Block -->
-    <section class="voice-studio">
-        <div class="container">
-            <h2 class="section-title">Voice Studio</h2>
-            <p class="studio-text">Раскройте голос, снимите внутренние зажимы и почувствуйте сценическую свободу.<br>Терапевтический вокал на международном уровне.</p>
-        </div>
+    <!-- Voice Studio -->
+    <section id="voice" class="section compact">
+      <div class="wrap">
+        <h2 class="section-title">Voice Studio</h2>
+        <p class="lead">Раскройте голос, снимите внутренние зажимы и почувствуйте сценическую свободу. Терапевтический вокал международного уровня.</p>
+      </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-choose">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают нашу школу</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3 class="card-title">Авторская методика Рады Аубакировой</h3>
-                    <p>Каждый педагог обучен лично Радой и работает по её терапевтическому подходу.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎓</div>
-                    <h3 class="card-title">Сертифицированные преподаватели</h3>
-                    <p>Команда экспертов, прошедших глубокую подготовку.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💫</div>
-                    <h3 class="card-title">Голос + тело + психика</h3>
-                    <p>Мы работаем не только с техникой, но и с эмоциями, зажимами и уверенностью.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3 class="card-title">Результаты учеников по всему миру</h3>
-                    <p>Тысячи трансформаций: сильный голос, свобода сцены и уверенность.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Why choose / Features -->
+    <section id="why" class="section compact dark-block">
+      <div class="wrap grid-4">
+        <article class="card feature">
+          <div class="ico" aria-hidden="true">📘</div>
+          <h3>Авторская методика</h3>
+          <p>Педагоги обучены лично Радой и работают по её терапевтической методике.</p>
+        </article>
+
+        <article class="card feature">
+          <div class="ico" aria-hidden="true">🎓</div>
+          <h3>Сертифицированная команда</h3>
+          <p>Экспертные преподаватели с глубоким опытом и результатами.</p>
+        </article>
+
+        <article class="card feature">
+          <div class="ico" aria-hidden="true">🫶</div>
+          <h3>Голос + тело + психика</h3>
+          <p>Интегративный подход: техника, эмоции и тело в одной системе.</p>
+        </article>
+
+        <article class="card feature">
+          <div class="ico" aria-hidden="true">🌍</div>
+          <h3>Ученики по всему миру</h3>
+          <p>Сотни трансформаций, международные достижения и выступления.</p>
+        </article>
+      </div>
     </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="courses">
-        <div class="container">
-            <h2 class="section-title">Терапевтический вокал — курсы</h2>
-            <div class="courses-grid">
-                <div class="course-card premium">
-                    <h3 class="course-title">Премиум формат (индивидуально)</h3>
-                    <div class="price course-price">990,000 ₸</div>
-                    <ul class="course-features">
-                        <li>• Максимальное внимание</li>
-                        <li>• Дыхание, подача, диапазон</li>
-                        <li>• Снятие голосовых и телесных зажимов</li>
-                        <li>• Голос как уверенность</li>
-                    </ul>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
+    <!-- Courses -->
+    <section id="courses" class="section compact">
+      <div class="wrap">
+        <h2 class="section-title">Терапевтический вокал — курсы</h2>
 
-                <div class="course-card">
-                    <h3 class="course-title">VIP группа (до 5 человек)</h3>
-                    <div class="price course-price">495,000 ₸</div>
-                    <ul class="course-features">
-                        <li>• Почти индивидуальная работа</li>
-                        <li>• Психология голоса</li>
-                        <li>• Сценическая свобода</li>
-                        <li>• Вдохновение в группе</li>
-                    </ul>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
+        <div class="courses-grid">
+          <div class="course-card premium">
+            <h4 class="course-title">Премиум формат (индивидуально)</h4>
+            <div class="course-price">990 000 ₸</div>
+            <ul class="course-list">
+              <li>Максимальное внимание</li>
+              <li>Дыхание, подача, диапазон</li>
+              <li>Снятие голосовых и телесных зажимов</li>
+            </ul>
+            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+          </div>
 
-                <div class="course-card">
-                    <h3 class="course-title">Группа (до 10)</h3>
-                    <div class="price course-price">350,000 ₸</div>
-                    <ul class="course-features">
-                        <li>• Рост вместе</li>
-                        <li>• Преодоление барьеров</li>
-                        <li>• Развитие голоса через практику</li>
-                    </ul>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
+          <div class="course-card">
+            <h4 class="course-title">VIP группа (до 5)</h4>
+            <div class="course-price">495 000 ₸</div>
+            <ul class="course-list">
+              <li>Малая группа — почти индивидуально</li>
+              <li>Психология голоса</li>
+            </ul>
+            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+          </div>
 
-                <div class="course-card">
-                    <h3 class="course-title">Пары</h3>
-                    <div class="price course-price">1,200,000 ₸</div>
-                    <ul class="course-features">
-                        <li>• Гармония голоса</li>
-                        <li>• Творческий путь вместе</li>
-                        <li>• Голос как язык доверия</li>
-                    </ul>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
+          <div class="course-card">
+            <h4 class="course-title">Группа (до 10)</h4>
+            <div class="course-price">350 000 ₸</div>
+            <ul class="course-list">
+              <li>Практика в группе</li>
+              <li>Преодоление барьеров</li>
+            </ul>
+            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+          </div>
 
-                <div class="course-card featured">
-                    <h3 class="course-title">Полный курс — Максимальная трансформация</h3>
-                    <div class="price course-price">2,200,000 ₸</div>
-                    <ul class="course-features">
-                        <li>• Полная программа</li>
-                        <li>• Индивидуальная траектория</li>
-                        <li>• Записи, выступления, уверенность</li>
-                    </ul>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
+          <div class="course-card">
+            <h4 class="course-title">Пары</h4>
+            <div class="course-price">1 200 000 ₸</div>
+            <ul class="course-list">
+              <li>Гармония в голосе и отношениях</li>
+            </ul>
+            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+          </div>
 
-                <div class="course-card">
-                    <h3 class="course-title">Одна сессия</h3>
-                    <div class="price course-price">108,000 ₸</div>
-                    <ul class="course-features">
-                        <li>• Попробуйте работу с педагогом</li>
-                    </ul>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
-
-                <div class="course-card">
-                    <h3 class="course-title">Пробный урок</h3>
-                    <div class="price course-price">54,000 ₸</div>
-                    <ul class="course-features">
-                        <li>• Первый шаг к вашему голосу</li>
-                    </ul>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
-            </div>
         </div>
+      </div>
     </section>
 
-    <!-- Transformation Game Section -->
-    <section id="games" class="transformation-game">
-        <div class="container">
-            <h2 class="section-title">Трансформационная игра "Мелодия души"</h2>
-            <div class="game-grid">
-                <div class="game-card">
-                    <h3 class="card-title">Индивидуальная игра</h3>
-                    <div class="price">108,000 ₸</div>
-                    <p class="game-desc">Сеанс личного прорыва</p>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
+    <!-- Transformation Game -->
+    <section id="games" class="section compact dark-block">
+      <div class="wrap grid-3">
+        <article class="card game">
+          <h4>Индивидуальная игра</h4>
+          <div class="course-price">108 000 ₸</div>
+          <p>Сеанс личного прорыва</p>
+          <a class="btn-ghost" href="#contact">Подробнее</a>
+        </article>
 
-                <div class="game-card">
-                    <h3 class="card-title">Групповая игра</h3>
-                    <div class="price">54,000 ₸</div>
-                    <p class="game-desc">Энергия коллектива</p>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
+        <article class="card game">
+          <h4>Групповая игра</h4>
+          <div class="course-price">54 000 ₸</div>
+          <p>Коллективная энергия и практика</p>
+          <a class="btn-ghost" href="#contact">Подробнее</a>
+        </article>
 
-                <div class="game-card featured">
-                    <h3 class="card-title">Обучение игре</h3>
-                    <div class="price">1,200,000 ₸</div>
-                    <p class="game-desc">Станьте ведущим трансформаций</p>
-                    <button class="kaspi-button">Kaspi Pay</button>
-                </div>
-            </div>
-        </div>
+        <article class="card game featured">
+          <h4>Обучение игре</h4>
+          <div class="course-price">1 200 000 ₸</div>
+          <p>Стать ведущим трансформационных практик</p>
+          <a class="btn-ghost" href="#contact">Подробнее</a>
+        </article>
+      </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 class="section-title">Часто задаваемые вопросы</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-question">Нужен ли опыт в вокале?</h3>
-                    <p class="faq-answer">Нет, наша методика подходит как для начинающих, так и для тех, кто уже имеет опыт. Мы работаем с каждым индивидуально, учитывая текущий уровень.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Онлайн или оффлайн?</h3>
-                    <p class="faq-answer">Мы предлагаем оба формата. Вы можете выбрать удобный для вас способ обучения — очно в студии или дистанционно через онлайн-платформы.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Сколько длится урок?</h3>
-                    <p class="faq-answer">Стандартный урок длится 60 минут. Для индивидуальных программ возможны расширенные сессии до 90 минут.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Когда появятся результаты?</h3>
-                    <p class="faq-answer">Первые изменения вы почувствуете уже после нескольких занятий. Устойчивая трансформация голоса и уверенности проявляется через 2-3 месяца регулярной работы.</p>
-                </div>
-            </div>
+    <!-- About Rada (photo inserted by you) -->
+    <section id="about" class="section compact">
+      <div class="wrap about-grid">
+        <div class="about-photo">
+          <img src="images/rada.jpg" alt="Рада Аубакирова" class="rada-photo">
         </div>
+        <div class="about-content">
+          <h2>Рада Аубакирова</h2>
+          <p class="subtitle">Основатель Международной школы терапевтического вокала</p>
+
+          <p class="about-text">Автор уникальной методики работы с голосом через тело и психику. Более 10 лет практики, сотни трансформаций: артисты, спикеры, педагоги и люди, стремящиеся к истинному звучанию.</p>
+
+          <a class="btn-cta" href="#contact">Записаться на консультацию</a>
+        </div>
+      </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="final-cta">
-        <div class="container">
-            <h2 class="cta-title">Ваш голос — ваше влияние</h2>
-            <button class="cta-button large">Записаться</button>
+    <!-- FAQ -->
+    <section id="faq" class="section compact dark-block">
+      <div class="wrap">
+        <h2 class="section-title">Часто задаваемые вопросы</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">Нужен ли опыт в вокале?</button>
+            <div class="faq-answer">Нет — методика подходит как для начинающих, так и для опытных.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Онлайн или оффлайн?</button>
+            <div class="faq-answer">Оба формата: очно в студии и онлайн.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Сколько длится урок?</button>
+            <div class="faq-answer">Стандарт — 60 минут; индивидуальные сессии до 90 минут.</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="#" class="footer-link">Kaspi</a>
-                <a href="#" class="footer-link">WhatsApp</a>
-                <a href="#" class="footer-link">Phone</a>
-                <a href="#" class="footer-link">Instagram</a>
-            </div>
-            <p class="footer-copyright">© 2025 Международная школа терапевтического вокала Рады Аубакировой</p>
+    <!-- Contact / CTA -->
+    <section id="contact" class="section compact">
+      <div class="wrap contact-wrap">
+        <div>
+          <h2 class="section-title">Ваш голос — ваше влияние</h2>
+          <p class="lead">Готовы начать? Оставьте заявку — мы свяжемся для согласования удобного времени.</p>
         </div>
-    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Burger-menu logic
-            const burger = document.getElementById("burgerBtn");
-            const mobileMenu = document.getElementById("mobileMenu");
+        <div class="contact-actions">
+          <a class="btn-cta large" href="https://kaspi.kz">Оплатить через Kaspi</a>
+          <a class="btn-ghost" href="https://wa.me/7700XXXXXXX">Написать в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            if (burger && mobileMenu) {
-                burger.addEventListener("click", () => {
-                    mobileMenu.classList.toggle("active");
-                });
-            }
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Rada Vocal" class="footer-logo" width="140">
+      </div>
 
-            // Smooth scroll for navigation links
-            document.querySelectorAll('.rv-nav a, .rv-mobile-menu a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+      <div class="footer-links">
+        <a href="#">Kaspi</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Instagram</a>
+      </div>
 
-            // Небольшая логика для FAQ — аккордеон
-            document.querySelectorAll('.faq-question').forEach(q => {
-                q.style.cursor = 'pointer';
-                const panel = q.nextElementSibling;
-                if (panel) panel.style.maxHeight = '0px';
-                q.addEventListener('click', () => {
-                    if (!panel) return;
-                    const isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
-                    document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
-                    panel.style.transition = 'max-height 0.35s ease';
-                    panel.style.overflow = 'hidden';
-                    panel.style.maxHeight = isOpen ? '0px' : panel.scrollHeight + 20 + 'px';
-                });
-            });
+      <div class="footer-copy">© 2025 Международная школа терапевтического вокала Рады Аубакировой</div>
+    </div>
+  </footer>
 
-            // Smooth scroll for CTA buttons
-            document.querySelectorAll('.cta-button, .kaspi-button').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const target = document.querySelector('#contact');
-                    if (target) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+  <!-- SCRIPTS -->
+  <script>
+    (function(){
+      // Elements
+      const burger = document.getElementById('burger');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      // Toggle mobile menu
+      function openMenu() {
+        burger.setAttribute('aria-expanded','true');
+        mobileMenu.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden','false');
+        document.documentElement.classList.add('no-scroll');
+      }
+      function closeMenu() {
+        burger.setAttribute('aria-expanded','false');
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden','true');
+        document.documentElement.classList.remove('no-scroll');
+      }
+
+      burger.addEventListener('click', (e) => {
+        const opened = mobileMenu.classList.contains('open');
+        if (opened) closeMenu(); else openMenu();
+      });
+
+      // Close menu on click on link
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+      // Close on outside click
+      document.addEventListener('click', function(e){
+        if (!mobileMenu.classList.contains('open')) return;
+        const target = e.target;
+        if (target === mobileMenu || mobileMenu.contains(target) || target === burger || burger.contains(target)) return;
+        closeMenu();
+      });
+
+      // Close on ESC
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      // Smooth scroll for header links
+      document.querySelectorAll('a[href^="#"]').forEach(el=>{
+        el.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.scrollY - 72;
+          window.scrollTo({top: y, behavior: 'smooth'});
         });
-    </script>
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-item').forEach(item=>{
+        const btn = item.querySelector('.faq-question');
+        const panel = item.querySelector('.faq-answer');
+        panel.style.maxHeight = '0px';
+        btn.addEventListener('click', ()=>{
+          const opened = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+          document.querySelectorAll('.faq-answer').forEach(p=>p.style.maxHeight='0px');
+          panel.style.maxHeight = opened ? '0px' : (panel.scrollHeight + 16) + 'px';
+        });
+      });
+
+      // Ensure images are not draggable (small polish)
+      document.querySelectorAll('img').forEach(i=> i.setAttribute('draggable','false'));
+    })();
+  </script>
 </body>
 </html>
