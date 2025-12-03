@@ -870,3 +870,30 @@ img.logo-circle {
     background: linear-gradient(135deg, #C8A86D, #A8863A);
     box-shadow: 0 0 4px rgba(200, 168, 109, 0.6);
 }
+
+/* Premium benefits block */
+.premium-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 28px 0;
+}
+
+.benefit-item {
+    padding: 14px 20px;
+    border-left: 4px solid #C8A262; /* премиальное золото */
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    font-size: 20px;
+    color: #2E3947;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+/* Hover эффект */
+.benefit-item:hover {
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}

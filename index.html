@@ -138,33 +138,41 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        /* Стили для золотых bullets - ОБНОВЛЁННЫЕ */
-        .benefits-list {
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
-        .benefit-item {
+        /* Стили для премиум-плашек - НОВЫЕ */
+        .premium-benefits {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            font-size: 20px;
-            font-weight: 400;
-            color: #3A302A;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .benefit-item .bullet {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #C8A86D, #A8863A);
-            box-shadow: 0 0 4px rgba(200, 168, 109, 0.6);
+        .premium-benefits .benefit-item {
+            background: white;
+            padding: 18px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(180, 140, 60, 0.3);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #3A302A;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .premium-benefits .benefit-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            border-color: rgba(180, 140, 60, 0.5);
         }
 
         @media (max-width: 768px) {
-            .benefit-item {
-                font-size: 18px;  /* Немного уменьшим на мобильных */
+            .premium-benefits .benefit-item {
+                font-size: 16px;
+                padding: 16px 20px;
             }
         }
 
@@ -253,20 +261,11 @@
             Голос, который услышат. Уверенность. Сцена. Признание.
         </p>
 
-        <!-- Заменённый блок с золотыми bullets -->
-        <div class="benefits-list">
-            <div class="benefit-item">
-                <span class="bullet"></span>
-                <span>Освобождение голоса</span>
-            </div>
-            <div class="benefit-item">
-                <span class="bullet"></span>
-                <span>Уверенность в себе</span>
-            </div>
-            <div class="benefit-item">
-                <span class="bullet"></span>
-                <span>Сценическая свобода</span>
-            </div>
+        <!-- Заменённый блок с премиум-плашками -->
+        <div class="premium-benefits">
+            <div class="benefit-item">Освобождение голоса</div>
+            <div class="benefit-item">Уверенность в себе</div>
+            <div class="benefit-item">Сценическая свобода</div>
         </div>
 
         <button class="cta-button">Записаться</button>
