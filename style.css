@@ -847,3 +847,26 @@ img.logo-circle {
         font-size: 20px;
     }
 }
+
+.benefits-list {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #3A302A;
+}
+
+.benefit-item .bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #C8A86D, #A8863A);
+    box-shadow: 0 0 4px rgba(200, 168, 109, 0.6);
+}
