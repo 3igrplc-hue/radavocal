@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="style.css">
     
-    <!-- Стили для премиального header -->
+    <!-- Стили для премиального header и hero -->
     <style>
         /* Premium Header Styles */
         .rv-header {
@@ -125,6 +125,18 @@
             margin-top: 10px;
         }
 
+        /* Премиальный Hero Block */
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            display: block;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .rv-nav {
@@ -148,6 +160,12 @@
             
             .rv-mobile-menu.active {
                 display: flex;
+            }
+            
+            .hero-logo {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 20px;
             }
         }
 
@@ -192,18 +210,25 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Обновлённый премиальный блок -->
     <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">Путь к вашему настоящему голосу, свободе и силе звучания</h1>
-            <p class="hero-subtitle">Голос, который услышат. Уверенность. Сцена. Признание.</p>
-            <ul class="hero-list">
-                <li>🎤 Освобождение голоса</li>
-                <li>✨ Уверенность в себе</li>
-                <li>🎭 Сценическая свобода</li>
-            </ul>
-            <button class="cta-button">Записаться</button>
-        </div>
+        <img src="logo.png" alt="Rada Vocal Logo" class="hero-logo">
+
+        <h1 class="hero-title">
+            Путь к вашему настоящему голосу, свободе<br> и силе звучания
+        </h1>
+
+        <p class="hero-subtitle">
+            Голос, который услышат. Уверенность. Сцена. Признание.
+        </p>
+
+        <ul class="hero-list">
+            <li>🎤 Освобождение голоса</li>
+            <li>✨ Уверенность в себе</li>
+            <li>🎭 Сценическая свобода</li>
+        </ul>
+
+        <button class="cta-button">Записаться</button>
     </section>
 
     <!-- Voice Studio Block -->
