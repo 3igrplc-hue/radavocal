@@ -666,10 +666,106 @@ button,
 header img,
 section img.logo,
 img.logo-circle {
-    width: 200px !important;
+    width: 300px !important;
     height: auto !important;
     border: none !important;
     border-radius: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
+}
+
+/* ---------------------------------------- */
+/*        PATCH 03 — Premium Course Cards   */
+/* ---------------------------------------- */
+
+.courses {
+    padding: 90px 0 !important;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
+    gap: 36px !important;
+    margin-top: 40px !important;
+}
+
+/* Card container */
+.course-card {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 40px 32px 48px !important;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.06) !important;
+    border: 1px solid rgba(180,140,60,0.15) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: 0.3s ease !important;
+    min-height: 420px !important;
+}
+
+.course-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.10) !important;
+    border-color: rgba(180,140,60,0.35) !important;
+}
+
+/* Premium top badge */
+.course-card.premium {
+    border: 2px solid #7a3939 !important;
+    background: linear-gradient(180deg, #fdfaf5, #ffffff) !important;
+}
+
+/* Title */
+.course-title {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #2c2c2c !important;
+    margin-bottom: 16px !important;
+    line-height: 1.3 !important;
+    min-height: 60px !important;
+}
+
+/* Price */
+.course-price {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #b48a2c !important;
+    margin-bottom: 18px !important;
+}
+
+/* Features list */
+.course-features {
+    padding-left: 0 !important;
+    list-style: none !important;
+    margin-bottom: 28px !important;
+}
+
+.course-features li {
+    margin: 8px 0 !important;
+    color: #333 !important;
+    font-size: 16px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Button — same height for all cards */
+.course-card .kaspi-button {
+    margin-top: auto !important;
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 40px !important;
+    background: linear-gradient(135deg, #c6a667, #b48a2c) !important;
+    box-shadow: 0 4px 12px rgba(180,140,60,0.25) !important;
+}
+
+.course-card .kaspi-button:hover {
+    box-shadow: 0 6px 20px rgba(180,140,60,0.35) !important;
+}
+
+/* Featured card (Максимальная трансформация) */
+.course-card.featured {
+    border: 2px solid #b48a2c !important;
+    box-shadow: 0 10px 40px rgba(180,140,60,0.25) !important;
+    background: linear-gradient(180deg, #fbf8f2, #ffffff) !important;
 }
