@@ -679,7 +679,7 @@ h3 {
 header img,
 section img.logo,
 img.logo-circle {
-    width: 250px !important;
+    width: 200px !important;
     height: auto !important;
     border: none !important;
     border-radius: 0 !important;
