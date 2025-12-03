@@ -124,11 +124,11 @@ button,
 }
 
 .hero-logo {
-    width: 200px;              /* увеличить логотип */
-    height: auto;              /* сохранить пропорции */
+    width: 200px;
+    height: auto;
     margin-bottom: 40px;
-    object-fit: contain;       /* аккуратное масштабирование */
-    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12)); /* лёгкая премиальная тень */
+    object-fit: contain;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));
 }
 
 .hero-subtitle {
@@ -237,53 +237,6 @@ button,
     justify-content: center;
     margin: 0 auto 18px;
     font-size: 1.6rem;
-}
-
-/* Courses Section — плотнее карточки, более выраженные границы */
-.courses {
-    padding: 68px 0;
-    background: var(--ivory);
-}
-
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
-    margin-top: 36px;
-}
-
-.course-card {
-    background: var(--card-bg);
-    padding: 36px 28px;
-    border-radius: 12px;
-    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
-    border-top: 6px solid var(--gold); /* потолще линия */
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.course-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-}
-
-.course-card.premium {
-    border-top-color: var(--deep-burgundy);
-    background: linear-gradient(180deg, #faf8f5 0%, white 100%);
-}
-
-.course-card.featured {
-    border: 2px solid var(--gold);
-    box-shadow: 0 8px 28px rgba(154,122,62,0.12);
-}
-
-.course-features {
-    list-style: none;
-    margin-bottom: 24px;
-    text-align: left;
-}
-
-.course-features li {
-    margin: 10px 0;
 }
 
 /* Transformation Game Section */
@@ -473,7 +426,257 @@ button,
     color: #3A2A20;
 }
 
-/* Responsive */
+/* PATCH 03 — усиленное увеличение логотипа + очистка стилей */
+.logo-circle {
+    width: 300px;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Универсальная версия для всех логотипов */
+.hero img,
+header img,
+section img.logo,
+img.logo-circle {
+    width: 200px;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* ---------------------------------------- */
+/*        PATCH 03 — Premium Course Cards   */
+/* ---------------------------------------- */
+
+.courses {
+    padding: 90px 0;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 36px;
+    margin-top: 40px;
+}
+
+/* Card container */
+.course-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 32px 48px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+    border: 1px solid rgba(180,140,60,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s ease;
+    min-height: 420px;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.10);
+    border-color: rgba(180,140,60,0.35);
+}
+
+/* Premium top badge */
+.course-card.premium {
+    border: 2px solid #7a3939;
+    background: linear-gradient(180deg, #fdfaf5, #ffffff);
+}
+
+/* Title */
+.course-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+    line-height: 1.3;
+    min-height: 60px;
+}
+
+/* Price */
+.course-price {
+    font-size: 26px;
+    font-weight: 700;
+    color: #b48a2c;
+    margin-bottom: 18px;
+}
+
+/* Features list */
+.course-features {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 28px;
+}
+
+.course-features li {
+    margin: 8px 0;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Button — same height for all cards */
+.course-card .kaspi-button {
+    margin-top: auto;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #c6a667, #b48a2c);
+    box-shadow: 0 4px 12px rgba(180,140,60,0.25);
+}
+
+.course-card .kaspi-button:hover {
+    box-shadow: 0 6px 20px rgba(180,140,60,0.35);
+}
+
+/* Featured card (Максимальная трансформация) */
+.course-card.featured {
+    border: 2px solid #b48a2c;
+    box-shadow: 0 10px 40px rgba(180,140,60,0.25);
+    background: linear-gradient(180deg, #fbf8f2, #ffffff);
+}
+
+/* ----------------------------------------- */
+/*        PATCH 04 — About Rada section      */
+/* ----------------------------------------- */
+
+.about-rada {
+    padding: 120px 0;
+    background: #faf8f5;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-photo img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 12px 34px rgba(0,0,0,0.12);
+    border: 4px solid #e8dfce;
+}
+
+.about-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #2a2a2a;
+    margin-bottom: 16px;
+}
+
+.about-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #7a3939;
+    margin-bottom: 24px;
+}
+
+.about-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Mobile version для PATCH 04 */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-photo img {
+        margin: 0 auto 30px;
+        max-width: 320px;
+    }
+
+    .about-content h2 {
+        font-size: 26px;
+    }
+
+    .about-sub {
+        font-size: 18px;
+    }
+}
+
+/* --------------------------------------------- */
+/*     PATCH 05 — Premium Why Choose Section     */
+/* --------------------------------------------- */
+
+.why-choose {
+    padding: 90px 0; /* Слегка увеличил padding для баланса */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 36px 24px; /* Вернул оригинальный padding */
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+.feature-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #c6a667, #b48a2c);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.feature-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px; /* Вернул оригинальный размер из типографики */
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #2a2a2a;
+    line-height: 1.3;
+}
+
+.feature-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px; /* Вернул оригинальный размер */
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Responsive Design - мобильные адаптации */
 @media (max-width: 768px) {
     .rv-nav {
         display: none;
@@ -486,17 +689,15 @@ button,
     .rv-mobile-menu.active {
         display: flex;
     }
-}
-
-/* Mobile improvements */
-@media (max-width: 768px) {
+    
     .hero {
         padding: 80px 20px;
     }
 
     .hero-logo {
-        width: 110px;
-        height: 110px;
+        width: 140px;
+        height: auto;
+        margin-bottom: 20px;
     }
 
     h1, .hero-title {
@@ -510,10 +711,7 @@ button,
     .hero-subtitle {
         font-size: 1.2rem;
     }
-}
-
-/* Responsive Design - мобильные адаптации */
-@media (max-width: 768px) {
+    
     body {
         padding-top: 70px;
         font-size: 16px;
@@ -551,7 +749,8 @@ button,
     .why-choose,
     .courses,
     .transformation-game,
-    .faq {
+    .faq,
+    .about-rada {
         padding: 50px 0;
     }
 
@@ -579,7 +778,11 @@ button,
         font-size: 22px;
     }
 
-    .course-card,
+    .course-card {
+        padding: 30px 20px;
+        min-height: auto; /* Убрал фиксированную высоту на мобильных */
+    }
+
     .game-card {
         padding: 24px;
     }
@@ -643,257 +846,4 @@ button,
     .price {
         font-size: 20px;
     }
-}
-
-/* PATCH 03 — усиленное увеличение логотипа + очистка стилей */
-.logo-circle {
-    width: 300px !important;
-    height: auto !important;
-
-    /* убираем круги, рамки, тени */
-    border: none !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-
-    display: block;
-}
-
-/* Универсальная версия для всех логотипов */
-.hero img,
-header img,
-section img.logo,
-img.logo-circle {
-    width: 200px !important;
-    height: auto !important;
-    border: none !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
-/* ---------------------------------------- */
-/*        PATCH 03 — Premium Course Cards   */
-/* ---------------------------------------- */
-
-.courses {
-    padding: 90px 0 !important;
-}
-
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
-    gap: 36px !important;
-    margin-top: 40px !important;
-}
-
-/* Card container */
-.course-card {
-    background: #ffffff !important;
-    border-radius: 16px !important;
-    padding: 40px 32px 48px !important;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.06) !important;
-    border: 1px solid rgba(180,140,60,0.15) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    transition: 0.3s ease !important;
-    min-height: 420px !important;
-}
-
-.course-card:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 16px 36px rgba(0,0,0,0.10) !important;
-    border-color: rgba(180,140,60,0.35) !important;
-}
-
-/* Premium top badge */
-.course-card.premium {
-    border: 2px solid #7a3939 !important;
-    background: linear-gradient(180deg, #fdfaf5, #ffffff) !important;
-}
-
-/* Title */
-.course-title {
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 22px !important;
-    font-weight: 700 !important;
-    color: #2c2c2c !important;
-    margin-bottom: 16px !important;
-    line-height: 1.3 !important;
-    min-height: 60px !important;
-}
-
-/* Price */
-.course-price {
-    font-size: 26px !important;
-    font-weight: 700 !important;
-    color: #b48a2c !important;
-    margin-bottom: 18px !important;
-}
-
-/* Features list */
-.course-features {
-    padding-left: 0 !important;
-    list-style: none !important;
-    margin-bottom: 28px !important;
-}
-
-.course-features li {
-    margin: 8px 0 !important;
-    color: #333 !important;
-    font-size: 16px !important;
-    font-family: 'Inter', sans-serif !important;
-}
-
-/* Button — same height for all cards */
-.course-card .kaspi-button {
-    margin-top: auto !important;
-    padding: 14px 20px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    border-radius: 40px !important;
-    background: linear-gradient(135deg, #c6a667, #b48a2c) !important;
-    box-shadow: 0 4px 12px rgba(180,140,60,0.25) !important;
-}
-
-.course-card .kaspi-button:hover {
-    box-shadow: 0 6px 20px rgba(180,140,60,0.35) !important;
-}
-
-/* Featured card (Максимальная трансформация) */
-.course-card.featured {
-    border: 2px solid #b48a2c !important;
-    box-shadow: 0 10px 40px rgba(180,140,60,0.25) !important;
-    background: linear-gradient(180deg, #fbf8f2, #ffffff) !important;
-}
-
-/* ----------------------------------------- */
-/*        PATCH 04 — About Rada section      */
-/* ----------------------------------------- */
-
-.about-rada {
-    padding: 120px 0;
-    background: #faf8f5;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-photo img {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 20px;
-    box-shadow: 0 12px 34px rgba(0,0,0,0.12);
-    border: 4px solid #e8dfce;
-}
-
-.about-content h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: #2a2a2a;
-    margin-bottom: 16px;
-}
-
-.about-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: #7a3939;
-    margin-bottom: 24px;
-}
-
-.about-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-/* Mobile version */
-@media (max-width: 900px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .about-photo img {
-        margin: 0 auto 30px;
-        max-width: 320px;
-    }
-
-    .about-content h2 {
-        font-size: 26px;
-    }
-
-    .about-sub {
-        font-size: 18px;
-    }
-}
-
-/* --------------------------------------------- */
-/*     PATCH 05 — Premium Why Choose Section     */
-/* --------------------------------------------- */
-
-.why-choose {
-    padding: 80px 0;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 28px;
-    margin-top: 40px;
-}
-
-.feature-card {
-    background: #ffffff;
-    padding: 28px 20px;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-    transition: 0.3s ease;
-    text-align: center;
-    min-height: 260px; /* уменьшили высоту */
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.10);
-}
-
-.feature-icon {
-    width: 68px;
-    height: 68px;
-    font-size: 1.8rem;
-    margin: 0 auto 14px;
-    background: linear-gradient(135deg, #c6a667, #b48a2c);
-    border-radius: 50%;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.feature-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px; /* уменьшили */
-    color: #2a2a2a;
-    line-height: 1.3;
-}
-
-.feature-card p {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px; /* плотнее */
-    line-height: 1.45; /* компактнее */
-    color: #444;
 }
