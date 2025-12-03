@@ -183,3 +183,82 @@ section{padding:36px 0}
   .rv-container{padding:0 12px}
   .container{padding:0 12px}
 }
+
+/* --- PREMIUM DARK PATCH --- */
+
+/* Приглушаем общий белый текст */
+body, p, li, span {
+    color: #D9D1C2;
+}
+
+/* Заголовки — теплый светлый беж */
+h1, h2, h3, h4 {
+    color: #F3EAD6;
+}
+
+/* Подписи / вторичный текст */
+.subtitle, small, .muted {
+    color: #AFA89A;
+}
+
+/* --- Плашка под названием курса --- */
+.course-title-wrapper {
+    background: linear-gradient(
+        to right,
+        rgba(212, 173, 90, 0.25),
+        rgba(233, 201, 120, 0.30)
+    );
+    padding: 10px 16px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+/* Название курса внутри плашки */
+.course-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #F3EAD6;
+}
+
+/* --- Премиальная тень для карточек --- */
+.course-card {
+    background: #17120F;
+    border-radius: 18px;
+    padding: 26px;
+    margin-top: 32px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.42);
+    border: 1px solid rgba(255, 215, 130, 0.07);
+}
+
+/* Цена — теплый золотой */
+.course-price {
+    color: #E9C779;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+/* Описание — мягкий */
+.course-desc {
+    color: #C9C2B4;
+    font-size: 1.05rem;
+    line-height: 1.45;
+}
+
+/* Кнопка Kaspi — премиальная */
+.kaspi-button {
+    background: linear-gradient(90deg, #D7B46A, #EACF88);
+    border-radius: 40px;
+    padding: 16px 22px;
+    margin-top: 22px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2D241C;
+}
+
+/* Hover эффект — золото светится */
+.kaspi-button:hover {
+    filter: brightness(1.13);
+}
