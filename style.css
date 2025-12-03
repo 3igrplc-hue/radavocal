@@ -70,7 +70,7 @@ h3 {
 }
 
 .hero-logo {
-    width: 240px;              /* увеличить логотип */
+    width: 280px;              /* увеличить логотип */
     height: auto;              /* сохранить пропорции */
     margin-bottom: 40px;
     object-fit: contain;       /* аккуратное масштабирование */
