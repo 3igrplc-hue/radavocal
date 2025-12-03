@@ -3,332 +3,309 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Международная школа терапевтического вокала — Рада Аубакирова</title>
+  <title>Международная школа терапевтического вокала — Rada</title>
 
-  <!-- Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <!-- HEADER -->
-  <header class="header" role="banner">
-    <div class="wrap">
-<a class="brand" href="#hero" aria-label="Rada Vocal">
-  Rada Vocal
-</a>
+<body class="rv-dark">
 
-      <nav class="nav" aria-label="Main navigation">
+  <!-- Header (текстовый логотип чтобы не было дубля) -->
+  <header class="rv-header" id="siteHeader" role="banner">
+    <div class="rv-container">
+      <a class="rv-brand" href="#top">Rada Vocal</a>
+
+      <nav class="rv-nav" id="mainNav" aria-label="Главное меню">
         <a href="#courses">Курсы</a>
-        <a href="#games">Игры</a>
+        <a href="#voice-studio">Voice Studio</a>
         <a href="#about">О Раде</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn-cta">Записаться</a>
+        <a href="#contact" class="rv-cta">Записаться</a>
       </nav>
 
-      <button id="burger" class="burger" aria-label="Меню" aria-expanded="false">
-        <span class="burger-lines"></span>
+      <button id="burgerBtn" class="rv-burger" aria-controls="mobileMenu" aria-expanded="false" aria-label="Открыть меню">
+        <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
       </button>
     </div>
 
-    <!-- Mobile menu (overlay) -->
-    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="rv-mobile-menu" aria-hidden="true">
       <a href="#courses">Курсы</a>
-      <a href="#games">Игры</a>
+      <a href="#voice-studio">Voice Studio</a>
       <a href="#about">О Раде</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="btn-cta">Записаться</a>
+      <a href="#contact" class="rv-cta">Записаться</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-inner">
-        <img src="logo.png" alt="Логотип Rada Vocal" class="hero-logo" width="200" height="200">
-        <h1 class="hero-title">Путь к вашему настоящему голосу, свободе и силе звучания</h1>
-        <p class="hero-sub">Голос, который услышат. Уверенность. Сцена. Признание.</p>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <!-- Большой логотип (центральный) -->
+      <img src="logo.png" alt="Rada — логотип" class="hero-logo" />
 
-        <div class="premium-benefits">
-          <div class="benefit">Освобождение голоса</div>
-          <div class="benefit">Уверенность в себе</div>
-          <div class="benefit">Сценическая свобода</div>
-        </div>
+      <h1 class="hero-title">Путь к вашему настоящему голосу, свободе и силе звучания</h1>
+      <p class="hero-subtitle">Голос, который услышат. Уверенность. Сцена. Признание.</p>
 
-        <div class="hero-actions">
-          <a class="btn-cta large" href="#contact">Записаться</a>
-          <a class="btn-ghost" href="#about">Узнать о методике</a>
-        </div>
+      <ul class="hero-list">
+        <li>Освобождение голоса</li>
+        <li>Уверенность в себе</li>
+        <li>Сценическая свобода</li>
+      </ul>
+
+      <div class="hero-ctas">
+        <button class="cta-button" data-scroll="#contact">Записаться</button>
+        <a href="#about" class="ghost-button">Узнать о методике</a>
       </div>
     </section>
 
     <!-- Voice Studio -->
-    <section id="voice" class="section compact">
-      <div class="wrap">
-        <h2 class="section-title">Voice Studio</h2>
-        <p class="lead">Раскройте голос, снимите внутренние зажимы и почувствуйте сценическую свободу. Терапевтический вокал международного уровня.</p>
-      </div>
-    </section>
-
-    <!-- Why choose / Features -->
-    <section id="why" class="section compact dark-block">
-      <div class="wrap grid-4">
-        <article class="card feature">
-          <div class="ico" aria-hidden="true">📘</div>
-          <h3>Авторская методика</h3>
-          <p>Педагоги обучены лично Радой и работают по её терапевтической методике.</p>
-        </article>
-
-        <article class="card feature">
-          <div class="ico" aria-hidden="true">🎓</div>
-          <h3>Сертифицированная команда</h3>
-          <p>Экспертные преподаватели с глубоким опытом и результатами.</p>
-        </article>
-
-        <article class="card feature">
-          <div class="ico" aria-hidden="true">🫶</div>
-          <h3>Голос + тело + психика</h3>
-          <p>Интегративный подход: техника, эмоции и тело в одной системе.</p>
-        </article>
-
-        <article class="card feature">
-          <div class="ico" aria-hidden="true">🌍</div>
-          <h3>Ученики по всему миру</h3>
-          <p>Сотни трансформаций, международные достижения и выступления.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ВСТАВЛЕННЫЙ ПАТЧ: Courses Cover -->
-    <section class="courses-cover">
+    <section id="voice-studio" class="voice-studio">
       <div class="container">
-        <h2 class="courses-cover-title">Терапевтический вокал — курсы</h2>
-        <p class="courses-cover-subtitle">
-          Выберите формат обучения, который поможет раскрыть голос и уверенность
-        </p>
+        <h2 class="section-title">Voice Studio</h2>
+        <p class="studio-text">Раскройте голос, снимите внутренние зажимы и почувствуйте сценическую свободу. Терапевтический вокал международного уровня.</p>
       </div>
     </section>
 
-    <!-- Courses -->
-    <section id="courses" class="section compact">
-      <div class="wrap">
-        <h2 class="section-title">Терапевтический вокал — курсы</h2>
+    <!-- WHY / BENEFITS (кратко) -->
+    <section class="why-choose">
+      <div class="container">
+        <h2 class="section-title">Почему выбирают нашу школу</h2>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">📘</div>
+            <h3>Авторская методика</h3>
+            <p>Педагоги обучены лично Радой и работают по её терапевтическому подходу.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>Сертифицированная команда</h3>
+            <p>Экспертные преподаватели с глубоким опытом и результатами.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🌿</div>
+            <h3>Голос + тело + психика</h3>
+            <p>Интегративный подход: техника, эмоции и тело в одной системе.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Ученик по всему миру</h3>
+            <p>Сотни трансформаций, международные достижения и выступления.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES with cover to separate -->
+    <section id="courses" class="courses">
+      <div class="container">
+        <div class="courses-cover">
+          <h2 class="section-title">Терапевтический вокал — курсы</h2>
+          <p class="cover-sub">Выберите формат обучения, который поможет раскрыть голос и уверенность.</p>
+        </div>
 
         <div class="courses-grid">
           <div class="course-card premium">
-            <h4 class="course-title">Премиум формат (индивидуально)</h4>
+            <h3 class="course-title">Премиум формат (индивидуально)</h3>
             <div class="course-price">990 000 ₸</div>
-            <ul class="course-list">
+            <ul class="course-features">
               <li>Максимальное внимание</li>
               <li>Дыхание, подача, диапазон</li>
               <li>Снятие голосовых и телесных зажимов</li>
             </ul>
-            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+            <button class="kaspi-button">Оплатить через Kaspi</button>
           </div>
 
           <div class="course-card">
-            <h4 class="course-title">VIP группа (до 5)</h4>
+            <h3 class="course-title">VIP группа (до 5)</h3>
             <div class="course-price">495 000 ₸</div>
-            <ul class="course-list">
-              <li>Малая группа — почти индивидуально</li>
+            <ul class="course-features">
+              <li>Почти индивидуально</li>
               <li>Психология голоса</li>
             </ul>
-            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+            <button class="kaspi-button">Kaspi Pay</button>
           </div>
 
           <div class="course-card">
-            <h4 class="course-title">Группа (до 10)</h4>
+            <h3 class="course-title">Группа (до 10)</h3>
             <div class="course-price">350 000 ₸</div>
-            <ul class="course-list">
+            <ul class="course-features">
               <li>Практика в группе</li>
               <li>Преодоление барьеров</li>
             </ul>
-            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+            <button class="kaspi-button">Kaspi Pay</button>
           </div>
 
           <div class="course-card">
-            <h4 class="course-title">Пары</h4>
+            <h3 class="course-title">Пары</h3>
             <div class="course-price">1 200 000 ₸</div>
-            <ul class="course-list">
-              <li>Гармония в голосе и отношениях</li>
+            <ul class="course-features">
+              <li>Гармония в голосе</li>
             </ul>
-            <a class="btn-cta" href="#contact">Kaspi Pay</a>
+            <button class="kaspi-button">Kaspi Pay</button>
           </div>
 
+          <div class="course-card featured">
+            <h3 class="course-title">Полный курс — Трансформация</h3>
+            <div class="course-price">2 200 000 ₸</div>
+            <ul class="course-features">
+              <li>Полная программа</li>
+            </ul>
+            <button class="kaspi-button">Kaspi Pay</button>
+          </div>
+
+          <div class="course-card">
+            <h3 class="course-title">Пробный урок</h3>
+            <div class="course-price">54 000 ₸</div>
+            <ul class="course-features">
+              <li>Первый шаг к вашему голосу</li>
+            </ul>
+            <button class="kaspi-button">Записаться</button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Transformation Game -->
-    <section id="games" class="section compact dark-block">
-      <div class="wrap grid-3">
-        <article class="card game">
-          <h4>Индивидуальная игра</h4>
-          <div class="course-price">108 000 ₸</div>
-          <p>Сеанс личного прорыва</p>
-          <a class="btn-ghost" href="#contact">Подробнее</a>
-        </article>
-
-        <article class="card game">
-          <h4>Групповая игра</h4>
-          <div class="course-price">54 000 ₸</div>
-          <p>Коллективная энергия и практика</p>
-          <a class="btn-ghost" href="#contact">Подробнее</a>
-        </article>
-
-        <article class="card game featured">
-          <h4>Обучение игре</h4>
-          <div class="course-price">1 200 000 ₸</div>
-          <p>Стать ведущим трансформационных практик</p>
-          <a class="btn-ghost" href="#contact">Подробнее</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- About Rada (photo inserted by you) -->
-    <section id="about" class="section compact">
-      <div class="wrap about-grid">
+    <!-- About Rada -->
+    <section id="about" class="about-rada">
+      <div class="container about-grid">
         <div class="about-photo">
-          <img src="rada.jpg" alt="Рада Аубакирова" class="rada-photo">
+          <!--  rada.jpg должен лежать в корне проекта -->
+          <img src="rada.jpg" alt="Рада Аубакирова" />
         </div>
         <div class="about-content">
           <h2>Рада Аубакирова</h2>
-          <p class="subtitle">Основатель Международной школы терапевтического вокала</p>
-
+          <div class="about-sub">Основатель Международной школы терапевтического вокала</div>
           <p class="about-text">Автор уникальной методики работы с голосом через тело и психику. Более 10 лет практики, сотни трансформаций: артисты, спикеры, педагоги и люди, стремящиеся к истинному звучанию.</p>
-
-          <a class="btn-cta" href="#contact">Записаться на консультацию</a>
+          <a href="#contact" class="cta-button small" data-scroll="#contact">Записаться на консультацию</a>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="section compact dark-block">
-      <div class="wrap">
+    <section id="faq" class="faq">
+      <div class="container">
         <h2 class="section-title">Часто задаваемые вопросы</h2>
-
         <div class="faq-list">
           <div class="faq-item">
             <button class="faq-question">Нужен ли опыт в вокале?</button>
-            <div class="faq-answer">Нет — методика подходит как для начинающих, так и для опытных.</div>
+            <div class="faq-answer"><p>Нет — методика подходит для начинающих и продвинутых.</p></div>
           </div>
-
           <div class="faq-item">
             <button class="faq-question">Онлайн или оффлайн?</button>
-            <div class="faq-answer">Оба формата: очно в студии и онлайн.</div>
+            <div class="faq-answer"><p>Предлагаем оба формата: очно и дистанционно.</p></div>
           </div>
-
           <div class="faq-item">
             <button class="faq-question">Сколько длится урок?</button>
-            <div class="faq-answer">Стандарт — 60 минут; индивидуальные сессии до 90 минут.</div>
+            <div class="faq-answer"><p>Стандартный урок — 60 минут. Возможны расширенные сессии.</p></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact / CTA -->
-    <section id="contact" class="section compact">
-      <div class="wrap contact-wrap">
-        <div>
-          <h2 class="section-title">Ваш голос — ваше влияние</h2>
-          <p class="lead">Готовы начать? Оставьте заявку — мы свяжемся для согласования удобного времени.</p>
-        </div>
-
-        <div class="contact-actions">
-          <a class="btn-cta large" href="https://kaspi.kz">Оплатить через Kaspi</a>
-          <a class="btn-ghost" href="https://wa.me/7700XXXXXXX">Написать в WhatsApp</a>
-        </div>
+    <section id="contact" class="final-cta">
+      <div class="container">
+        <h2 class="cta-title">Ваш голос — ваше влияние</h2>
+        <button class="cta-button large">Записаться</button>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="footer">
-    <div class="wrap footer-grid">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Rada Vocal" class="footer-logo" width="140">
-      </div>
-
+    <div class="container">
       <div class="footer-links">
         <a href="#">Kaspi</a>
         <a href="#">WhatsApp</a>
         <a href="#">Instagram</a>
       </div>
-
-      <div class="footer-copy">© 2025 Международная школа терапевтического вокала Рады Аубакировой</div>
+      <p class="footer-copy">© 2025 Международная школа терапевтического вокала — Рада Аубакирова</p>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- JS: меню, аккордеон, smooth scroll, CTA behaviour -->
   <script>
-    (function(){
-      // Elements
-      const burger = document.getElementById('burger');
+    document.addEventListener('DOMContentLoaded', () => {
+      // burger
+      const burger = document.getElementById('burgerBtn');
       const mobileMenu = document.getElementById('mobileMenu');
+      const mainNav = document.getElementById('mainNav');
 
-      // Toggle mobile menu
-      function openMenu() {
-        burger.setAttribute('aria-expanded','true');
-        mobileMenu.classList.add('open');
-        mobileMenu.setAttribute('aria-hidden','false');
-        document.documentElement.classList.add('no-scroll');
-      }
       function closeMenu() {
         burger.setAttribute('aria-expanded','false');
-        mobileMenu.classList.remove('open');
         mobileMenu.setAttribute('aria-hidden','true');
-        document.documentElement.classList.remove('no-scroll');
+        mobileMenu.classList.remove('active');
+      }
+      function openMenu() {
+        burger.setAttribute('aria-expanded','true');
+        mobileMenu.setAttribute('aria-hidden','false');
+        mobileMenu.classList.add('active');
       }
 
-      burger.addEventListener('click', (e) => {
-        const opened = mobileMenu.classList.contains('open');
-        if (opened) closeMenu(); else openMenu();
+      burger.addEventListener('click', () => {
+        const expanded = burger.getAttribute('aria-expanded') === 'true';
+        if (expanded) closeMenu(); else openMenu();
       });
 
-      // Close menu on click on link
-      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      // close on link click (mobile)
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeMenu()));
 
-      // Close on outside click
-      document.addEventListener('click', function(e){
-        if (!mobileMenu.classList.contains('open')) return;
-        const target = e.target;
-        if (target === mobileMenu || mobileMenu.contains(target) || target === burger || burger.contains(target)) return;
-        closeMenu();
+      // close on outside click
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
+          closeMenu();
+        }
       });
 
-      // Close on ESC
-      document.addEventListener('keydown', function(e){
+      // close on Esc
+      document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMenu();
       });
 
-      // Smooth scroll for header links
-      document.querySelectorAll('a[href^="#"]').forEach(el=>{
-        el.addEventListener('click', function(e){
-          const href = this.getAttribute('href');
-          if (!href || href === '#') return;
-          const target = document.querySelector(href);
-          if (!target) return;
-          e.preventDefault();
-          const y = target.getBoundingClientRect().top + window.scrollY - 72;
-          window.scrollTo({top: y, behavior: 'smooth'});
+      // Smooth scroll for anchors & CTA
+      function smoothTo(selector) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        window.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('[data-scroll]').forEach(btn => {
+        btn.addEventListener('click', (ev) => {
+          ev.preventDefault();
+          const target = btn.getAttribute('data-scroll');
+          smoothTo(target);
+          closeMenu();
         });
       });
+
+      document.querySelectorAll('.rv-nav a').forEach(a => a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (!href || href.charAt(0) !== '#') return;
+        e.preventDefault();
+        smoothTo(href);
+      }));
 
       // FAQ accordion
-      document.querySelectorAll('.faq-item').forEach(item=>{
-        const btn = item.querySelector('.faq-question');
-        const panel = item.querySelector('.faq-answer');
-        panel.style.maxHeight = '0px';
-        btn.addEventListener('click', ()=>{
-          const opened = panel.style.maxHeight && panel.style.maxHeight !== '0px';
-          document.querySelectorAll('.faq-answer').forEach(p=>p.style.maxHeight='0px');
-          panel.style.maxHeight = opened ? '0px' : (panel.scrollHeight + 16) + 'px';
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const panel = q.nextElementSibling;
+          if (!panel) return;
+          const isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+          document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
+          panel.style.maxHeight = isOpen ? '0px' : panel.scrollHeight + 20 + 'px';
         });
       });
 
-      // Ensure images are not draggable (small polish)
-      document.querySelectorAll('img').forEach(i=> i.setAttribute('draggable','false'));
-    })();
+      // ensure hero logo not duplicated: header is text-only by design
+    });
   </script>
 </body>
 </html>
