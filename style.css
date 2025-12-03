@@ -1,3 +1,94 @@
+/* ----------------------------- */
+/*  PATCH TYPOGRAPHY by ChatGPT  */
+/* ----------------------------- */
+
+/* Типографика: заголовки — Montserrat (современный, строгий), текст — Inter */
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #2E2E2E;
+}
+
+/* Headings */
+h1, .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 1.25;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.35;
+}
+
+/* Card titles */
+.feature-card h3,
+.course-card h3,
+.game-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+/* Descriptions */
+.feature-card p,
+.course-features,
+.studio-text,
+.game-desc,
+.faq-answer,
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* Prices */
+.price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #B48A2C; /* золотой премиум */
+}
+
+/* Buttons */
+button,
+.cta-button,
+.kaspi-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* Why Us icons text */
+.feature-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* FAQ Questions */
+.faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* ----------------------------- */
+/*  КОНЕЦ PATCH TYPOGRAPHY       */
+/* ----------------------------- */
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -16,43 +107,6 @@
     --light-gray: #e8e4dd;
     --text-color: #2f2f2f;
     --card-bg: #ffffff;
-}
-
-/* Типографика: заголовки — Playfair, текст — Inter */
-body {
-    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    color: var(--text-color);
-    background-color: var(--ivory);
-    line-height: 1.75;
-    font-size: 18px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding-top: 80px; /* Чтобы контент не скрывался под фиксированным header */
-}
-
-h1, h2, h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-}
-
-/* немного плотнее заголовки и чуть выше контраст */
-h1 { 
-    font-size: 3rem; 
-    color: var(--dark-graphite); 
-    line-height: 1.15; 
-    margin-bottom: 12px; 
-}
-
-h2 { 
-    font-size: 2.2rem; 
-    color: var(--dark-graphite); 
-    margin-bottom: 18px; 
-}
-
-h3 { 
-    font-size: 1.25rem; 
-    color: var(--dark-graphite); 
 }
 
 /* Контейнеры — чуть плотнее */
@@ -75,14 +129,6 @@ h3 {
     margin-bottom: 40px;
     object-fit: contain;       /* аккуратное масштабирование */
     filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12)); /* лёгкая премиальная тень */
-}
-
-.hero-title {
-    font-family: "Playfair Display", serif;
-    font-size: 3.2rem;
-    line-height: 1.2;
-    color: #2a2a2a;
-    margin-bottom: 24px;
 }
 
 .hero-subtitle {
@@ -109,13 +155,10 @@ h3 {
     color: white;
     border: 0;
     padding: 14px 48px;
-    font-size: 1.05rem;
     border-radius: 48px;
     cursor: pointer;
     transition: all 0.28s ease;
     box-shadow: 0 6px 18px rgba(154,122,62,0.18);
-    font-family: inherit;
-    font-weight: 600;
 }
 
 .cta-button:hover {
@@ -125,7 +168,6 @@ h3 {
 
 .cta-button.large {
     padding: 16px 56px;
-    font-size: 1.2rem;
 }
 
 /* Kaspi button — full width on small screens handled later */
@@ -134,10 +176,8 @@ h3 {
     color: white;
     border: 0;
     padding: 12px 28px;
-    font-size: 1rem;
     border-radius: 40px;
     cursor: pointer;
-    font-weight: 600;
     width: 100%;
     transition: all 0.28s ease;
 }
@@ -155,17 +195,8 @@ h3 {
 }
 
 .section-title {
-    color: var(--dark-graphite);
     margin-bottom: 18px;
     text-align: center;
-}
-
-.studio-text {
-    font-size: 1.15rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: var(--text-color);
-    line-height: 1.75;
 }
 
 /* Why Choose — карты плотнее и линии толще */
@@ -208,18 +239,6 @@ h3 {
     font-size: 1.6rem;
 }
 
-.feature-card h3 {
-    color: var(--dark-graphite);
-    margin-bottom: 12px;
-    font-size: 1.2rem;
-}
-
-.feature-card p {
-    color: var(--text-color);
-    line-height: 1.7;
-    font-size: 1rem;
-}
-
 /* Courses Section — плотнее карточки, более выраженные границы */
 .courses {
     padding: 68px 0;
@@ -257,21 +276,6 @@ h3 {
     box-shadow: 0 8px 28px rgba(154,122,62,0.12);
 }
 
-.course-card h3 {
-    color: var(--dark-graphite);
-    margin-bottom: 16px;
-    font-size: 1.15rem;
-    line-height: 1.25;
-    min-height: 60px;
-}
-
-.price {
-    font-size: 1.6rem;
-    color: var(--gold);
-    font-weight: 700;
-    margin-bottom: 16px;
-}
-
 .course-features {
     list-style: none;
     margin-bottom: 24px;
@@ -280,8 +284,6 @@ h3 {
 
 .course-features li {
     margin: 10px 0;
-    color: var(--text-color);
-    line-height: 1.6;
 }
 
 /* Transformation Game Section */
@@ -317,19 +319,6 @@ h3 {
     box-shadow: 0 8px 28px rgba(122,57,57,0.12);
 }
 
-.game-card h3 {
-    color: var(--dark-graphite);
-    margin-bottom: 16px;
-    font-size: 1.15rem;
-}
-
-.game-desc {
-    font-style: italic;
-    color: var(--deep-burgundy);
-    margin: 12px 0 24px;
-    min-height: 40px;
-}
-
 /* FAQ — добавляем аккордеонную логику и плавность */
 .faq {
     padding: 68px 0;
@@ -356,21 +345,11 @@ h3 {
     box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
 }
 
-.faq-question {
-    font-weight: 600;
-    color: var(--dark-graphite);
-    font-size: 1.1rem;
-    cursor: pointer;
-    margin-bottom: 0;
-}
-
 .faq-answer {
-    color: var(--text-color);
     margin-top: 12px;
     max-height: 0;
     transition: max-height .35s ease;
     overflow: hidden;
-    line-height: 1.7;
 }
 
 /* Final CTA — делаем текст чуть компактнее, но выразительнее */
@@ -383,8 +362,6 @@ h3 {
 .cta-title {
     color: white;
     margin-bottom: 28px;
-    font-size: 2.4rem;
-    font-weight: 600;
 }
 
 /* Footer */
@@ -405,7 +382,6 @@ h3 {
 .footer-link {
     color: var(--gold);
     text-decoration: none;
-    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
@@ -442,7 +418,7 @@ h3 {
 }
 
 .rv-logo span {
-    font-family: "Playfair Display", serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: #3A2A20;
@@ -455,6 +431,7 @@ h3 {
 }
 
 .rv-nav a {
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #3A2A20;
     text-decoration: none;
@@ -522,8 +499,12 @@ h3 {
         height: 110px;
     }
 
-    .hero-title {
-        font-size: 2rem;
+    h1, .hero-title {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
     }
 
     .hero-subtitle {
@@ -535,33 +516,35 @@ h3 {
 @media (max-width: 768px) {
     body {
         padding-top: 70px;
+        font-size: 16px;
     }
     
-    h1 {
-        font-size: 1.9rem;
+    h1, .hero-title {
+        font-size: 26px;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 22px;
     }
 
     h3 {
-        font-size: 1.15rem;
+        font-size: 18px;
     }
 
     .hero-list {
         display: block;
         text-align: center;
+        font-size: 1.1rem;
     }
 
     .cta-button {
         padding: 12px 28px;
-        font-size: 1rem;
+        font-size: 16px;
     }
 
     .cta-button.large {
         padding: 14px 40px;
-        font-size: 1.1rem;
+        font-size: 17px;
     }
 
     .voice-studio,
@@ -577,7 +560,7 @@ h3 {
     }
 
     .cta-title {
-        font-size: 1.8rem;
+        font-size: 24px;
     }
 
     .features-grid,
@@ -593,11 +576,7 @@ h3 {
     }
 
     .price {
-        font-size: 1.4rem;
-    }
-
-    .course-card h3 {
-        min-height: auto;
+        font-size: 22px;
     }
 
     .course-card,
@@ -626,16 +605,20 @@ h3 {
 
 @media (max-width: 480px) {
     body {
-        font-size: 16px;
+        font-size: 15px;
         padding-top: 65px;
     }
 
-    h1 {
-        font-size: 1.7rem;
+    h1, .hero-title {
+        font-size: 22px;
     }
 
     h2 {
-        font-size: 1.3rem;
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 17px;
     }
 
     .hero {
@@ -655,6 +638,10 @@ h3 {
     .footer-links {
         flex-direction: column;
         gap: 12px;
+    }
+
+    .price {
+        font-size: 20px;
     }
 }
 
@@ -679,7 +666,7 @@ h3 {
 header img,
 section img.logo,
 img.logo-circle {
-    width: 200px !important;
+    width: 300px !important;
     height: auto !important;
     border: none !important;
     border-radius: 0 !important;
