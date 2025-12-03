@@ -657,3 +657,32 @@ h3 {
         gap: 12px;
     }
 }
+
+/* PATCH 03 — усиленное увеличение логотипа + очистка стилей */
+.logo-circle {
+    width: 300px !important;
+    height: auto !important;
+
+    /* убираем круги, рамки, тени */
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+
+    display: block;
+}
+
+/* Универсальная версия для всех логотипов */
+.hero img,
+header img,
+section img.logo,
+img.logo-circle {
+    width: 300px !important;
+    height: auto !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
