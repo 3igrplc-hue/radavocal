@@ -27,6 +27,7 @@ body {
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: 80px; /* Чтобы контент не скрывался под фиксированным header */
 }
 
 h1, h2, h3 {
@@ -411,8 +412,105 @@ h3 {
     font-size: 0.95rem;
 }
 
+/* =======================
+   PREMIUM HEADER
+======================= */
+
+.rv-header {
+    width: 100%;
+    background: #FAF7F2;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.rv-container {
+    max-width: 1180px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rv-logo span {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #3A2A20;
+}
+
+.rv-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.rv-nav a {
+    font-size: 16px;
+    color: #3A2A20;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.rv-nav a:hover {
+    color: #B68A43;
+}
+
+.rv-cta {
+    background: linear-gradient(90deg, #C9A55C, #9E7A39);
+    padding: 10px 18px;
+    border-radius: 30px;
+    color: white !important;
+    font-weight: 600;
+}
+
+/* Burger (mobile) */
+.rv-burger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Mobile menu */
+.rv-mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.rv-mobile-menu a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #3A2A20;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rv-nav {
+        display: none;
+    }
+
+    .rv-burger {
+        display: block;
+    }
+
+    .rv-mobile-menu.active {
+        display: flex;
+    }
+}
+
 /* Responsive Design - мобильные адаптации */
 @media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
     h1 {
         font-size: 1.9rem;
     }
@@ -507,6 +605,7 @@ h3 {
 @media (max-width: 480px) {
     body {
         font-size: 16px;
+        padding-top: 65px;
     }
 
     h1 {

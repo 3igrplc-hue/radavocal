@@ -10,8 +10,188 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Стили для премиального header -->
+    <style>
+        /* Premium Header Styles */
+        .rv-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .rv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rv-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .rv-nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .rv-nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .rv-nav a:hover {
+            color: #8a2be2;
+            background: rgba(138, 43, 226, 0.05);
+        }
+
+        .rv-nav .rv-cta {
+            background: linear-gradient(135deg, #8a2be2, #4b0082);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rv-nav .rv-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.3);
+            background: linear-gradient(135deg, #9b40ff, #5a00a3);
+            color: white;
+        }
+
+        .rv-burger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2c3e50;
+            padding: 5px;
+        }
+
+        .rv-mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .rv-mobile-menu a {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .rv-mobile-menu a:hover {
+            background: rgba(138, 43, 226, 0.08);
+            color: #8a2be2;
+        }
+
+        .rv-mobile-menu .rv-cta {
+            background: linear-gradient(135deg, #8a2be2, #4b0082);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .rv-nav {
+                gap: 15px;
+            }
+            
+            .rv-nav a {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .rv-nav {
+                display: none;
+            }
+            
+            .rv-burger {
+                display: block;
+            }
+            
+            .rv-mobile-menu.active {
+                display: flex;
+            }
+        }
+
+        /* Adjust body padding to prevent content from hiding under fixed header */
+        body {
+            padding-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Premium Header -->
+    <header class="rv-header">
+        <div class="rv-container">
+            <div class="rv-logo">
+                <!-- Замените на SVG логотип после готовности -->
+                <span>Rada Vocal</span>
+            </div>
+
+            <nav class="rv-nav">
+                <a href="#courses">Курсы</a>
+                <a href="#games">Игры</a>
+                <a href="#about">О школе</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="rv-cta">Записаться</a>
+            </nav>
+
+            <div class="rv-burger" id="burgerBtn">&#9776;</div>
+        </div>
+
+        <div class="rv-mobile-menu" id="mobileMenu">
+            <a href="#courses">Курсы</a>
+            <a href="#games">Игры</a>
+            <a href="#about">О школе</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact" class="rv-cta">Записаться</a>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -64,7 +244,7 @@
     </section>
 
     <!-- Courses Section -->
-    <section class="courses">
+    <section id="courses" class="courses">
         <div class="container">
             <h2 class="section-title">Терапевтический вокал — курсы</h2>
             <div class="courses-grid">
@@ -147,7 +327,7 @@
     </section>
 
     <!-- Transformation Game Section -->
-    <section class="transformation-game">
+    <section id="games" class="transformation-game">
         <div class="container">
             <h2 class="section-title">Трансформационная игра "Мелодия души"</h2>
             <div class="game-grid">
@@ -176,7 +356,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq">
+    <section id="faq" class="faq">
         <div class="container">
             <h2 class="section-title">Часто задаваемые вопросы</h2>
             <div class="faq-list">
@@ -201,7 +381,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="final-cta">
+    <section id="contact" class="final-cta">
         <div class="container">
             <h2 class="cta-title">Ваш голос — ваше влияние</h2>
             <button class="cta-button large">Записаться</button>
@@ -222,8 +402,36 @@
     </footer>
 
     <script>
-        // Небольшая логика для FAQ — аккордеон
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Burger-menu logic
+            const burger = document.getElementById("burgerBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            if (burger && mobileMenu) {
+                burger.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("active");
+                });
+            }
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('.rv-nav a, .rv-mobile-menu a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Небольшая логика для FAQ — аккордеон
             document.querySelectorAll('.faq-question').forEach(q => {
                 q.style.cursor = 'pointer';
                 const panel = q.nextElementSibling;
@@ -238,14 +446,16 @@
                 });
             });
 
-            // Smooth scroll for anchor-less CTA buttons: ищем кнопки .cta-button и прокручиваем к секции записи (если есть)
+            // Smooth scroll for CTA buttons
             document.querySelectorAll('.cta-button, .kaspi-button').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    // если у нас есть форма записи с id="signup" — скроллим к ней, иначе ничего
-                    const target = document.querySelector('#signup');
+                    const target = document.querySelector('#contact');
                     if (target) {
                         e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
