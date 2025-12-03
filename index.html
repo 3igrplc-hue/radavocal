@@ -138,6 +138,36 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
+        /* Стили для золотых bullets - ОБНОВЛЁННЫЕ */
+        .benefits-list {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: 400;
+            color: #3A302A;
+        }
+
+        .benefit-item .bullet {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #C8A86D, #A8863A);
+            box-shadow: 0 0 4px rgba(200, 168, 109, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .benefit-item {
+                font-size: 18px;  /* Немного уменьшим на мобильных */
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .rv-nav {
@@ -178,45 +208,6 @@
         @media (max-width: 768px) {
             body {
                 padding-top: 70px;
-            }
-        }
-        
-        /* Стили для золотых bullets */
-        .benefits-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            color: #2c3e50;
-        }
-
-        .bullet {
-            width: 12px;
-            height: 12px;
-            background: linear-gradient(135deg, #c6a667, #b48a2c);
-            border-radius: 50%;
-            display: block;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 768px) {
-            .benefits-list {
-                gap: 16px;
-                margin-bottom: 40px;
-            }
-            
-            .benefit-item {
-                font-size: 1.1rem;
-                gap: 12px;
             }
         }
     </style>
