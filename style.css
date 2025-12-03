@@ -104,15 +104,87 @@ body{
 .feature .ico{font-size:20px;margin-bottom:8px;color:var(--gold)}
 .feature h3, .feature p{color:var(--muted);}
 
+/* ---------- COVER for Courses Section ---------- */
+.courses-cover {
+    padding: 60px 0 50px;
+    background: linear-gradient(180deg, #1a1513 0%, #211916 100%);
+    border-bottom: 1px solid rgba(255, 215, 140, 0.15);
+    text-align: center;
+}
+
+.courses-cover-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.courses-cover-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #c8b08a;
+}
+
 /* Courses grid */
-.courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:12px}
-.course-card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px;min-height:220px}
-.course-card .course-title{font-weight:700;color:var(--text);font-size:16px}
-.course-price{color:var(--gold);font-weight:800;font-size:18px}
+.courses-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:28px; /* Увеличенный gap из патча */
+    margin-top:12px
+}
+
+/* Better readability for course cards */
+.course-card{
+    background: #15100f; /* Новый цвет фона из патча */
+    padding:32px 26px; /* Увеличенные отступы из патча */
+    border-radius:18px; /* Увеличенный радиус из патча */
+    border:1px solid rgba(255, 219, 140, 0.12); /* Новая граница из патча */
+    box-shadow:0 10px 28px rgba(0,0,0,0.4); /* Улучшенная тень из патча */
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    min-height:220px
+}
+
+/* Увеличение шрифта заголовков */
+.course-card .course-title{
+    font-weight:700;
+    color:var(--text);
+    font-size:22px; /* Увеличенный шрифт из патча */
+    margin-bottom:14px; /* Дополнительный отступ из патча */
+}
+
+/* Цена — ярче + крупнее */
+.course-card .course-price{
+    color:#e6c17d; /* Яркий цвет из патча */
+    font-weight:800;
+    font-size:30px; /* Увеличенный шрифт из патча */
+    margin-bottom:18px; /* Дополнительный отступ из патча */
+}
 
 /* compact lists */
-.course-list{list-style:none;padding-left:0;margin:6px 0 0 0;color:var(--muted);font-size:14px}
-.course-list li{margin:6px 0}
+.course-list{
+    list-style:none;
+    padding-left:0;
+    margin:6px 0 0 0;
+    color:#d9c8b3; /* Новый цвет из патча */
+    font-size:17px; /* Увеличенный шрифт из патча */
+}
+.course-list li{
+    margin:8px 0; /* Увеличенный отступ из патча */
+}
+
+/* Кнопки Kaspi — улучшены */
+.course-card .btn-cta{
+    background: linear-gradient(135deg, #d4b47b, #b48a40); /* Новый градиент из патча */
+    color:#111;
+    padding:14px 24px; /* Увеличенные отступы из патча */
+    border-radius:40px; /* Увеличенный радиус из патча */
+    font-weight:600;
+    font-size:18px; /* Увеличенный шрифт из патча */
+}
 
 /* Game cards */
 .game{padding:14px}
@@ -143,6 +215,25 @@ body{
 
 /* Minor utilities */
 .wrap.center{display:flex;justify-content:center;align-items:center}
+
+/* Мобильная версия для курсов (из патча) */
+@media (max-width: 768px) {
+    .courses-cover-title {
+        font-size: 26px;
+    }
+    .courses-cover-subtitle {
+        font-size: 16px;
+    }
+    .course-card .course-title {
+        font-size: 20px;
+    }
+    .course-card .course-price {
+        font-size: 26px;
+    }
+    .course-list li {
+        font-size: 16px;
+    }
+}
 
 /* Responsive adjustments */
 @media (max-width:900px){
