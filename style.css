@@ -124,7 +124,7 @@ button,
 }
 
 .hero-logo {
-    width: 320px;              /* увеличить логотип */
+    width: 200px;              /* увеличить логотип */
     height: auto;              /* сохранить пропорции */
     margin-bottom: 40px;
     object-fit: contain;       /* аккуратное масштабирование */
