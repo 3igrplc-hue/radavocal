@@ -3,300 +3,323 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Международная школа терапевтического вокала — Rada Vocal</title>
+  <title>Международная школа терапевтического вокала — Rada A.</title>
 
-  <!-- Montserrat -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="dark">
+
   <!-- Header -->
   <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="#top">Rada Vocal</a>
+    <div class="container header-inner">
+      <a class="brand" href="#hero">
+        <!-- small text-brand in header (keeps page clean) -->
+        Rada Vocal
+      </a>
+
       <button id="burger" class="burger" aria-label="menu" aria-expanded="false">
-        <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
       </button>
-      <nav id="nav" class="nav">
-        <a href="#courses">Курсы</a>
-        <a href="#games">Игры</a>
-        <a href="#about">О Раде</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn small pill gold-ghost">Записаться</a>
-      </nav>
     </div>
+
+    <!-- mobile nav -->
+    <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <a href="#courses">Курсы</a>
+      <a href="#why">Почему</a>
+      <a href="#about">О Раде</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn-outline">Записаться</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <main>
-    <section id="top" class="hero" data-parallax>
-      <div class="hero-overlay"></div>
-
-      <div class="container hero-inner">
-        <!-- Logo above background, centered -->
-        <img src="logo.png" alt="Rada logo" class="hero-logo" width="200" height="200">
-
-        <h1 class="hero-title">Путь к вашему настоящему голосу, свободе и силе звучания</h1>
-        <p class="hero-sub">Голос, который услышат. Уверенность. Сцена. Признание.</p>
-
-        <div class="hero-benefits">
-          <button class="pill dark">Освобождение голоса</button>
-          <button class="pill dark">Уверенность в себе</button>
-          <button class="pill dark">Сценическая свобода</button>
-        </div>
-
-        <div class="hero-ctas">
-          <a href="#contact" class="btn pill gold">Записаться</a>
-          <a href="#about" class="btn pill outline">Узнать о методике</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Voice Studio -->
-    <section id="voice" class="voice-studio">
-      <div class="container">
-        <h2 class="section-title">Voice Studio</h2>
-        <p class="lead muted">Раскройте голос, снимите внутренние зажимы и почувствуйте сценическую свободу. Терапевтический вокал международного уровня.</p>
-
-        <div class="features-grid">
-          <article class="feature-card light-card">
-            <div class="icon-round">🎵</div>
-            <h3>Авторская методика</h3>
-            <p>Педагоги обучены лично Радой и работают по её терапевтической системе.</p>
-          </article>
-
-          <article class="feature-card light-card">
-            <div class="icon-round">🎓</div>
-            <h3>Сертифицированная команда</h3>
-            <p>Экспертные педагоги с глубоким опытом и результатами.</p>
-          </article>
-
-          <article class="feature-card light-card">
-            <div class="icon-round">🌱</div>
-            <h3>Голос + тело + психика</h3>
-            <p>Интеграция техники, эмоций и тела в одной системе.</p>
-          </article>
-
-          <article class="feature-card light-card">
-            <div class="icon-round">🌍</div>
-            <h3>Ученики по всему миру</h3>
-            <p>Сотни трансформаций, международные достижения и выступления.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- COURSES - with cover separator (gradient lightening) -->
-    <section id="courses" class="courses">
-      <div class="courses-cover">
-        <div class="container">
-          <h2 class="section-title white">Терапевтический вокал — курсы</h2>
-          <p class="lead muted light">Выберите формат обучения, который поможет раскрыть голос и уверенность</p>
-        </div>
+  <!-- Hero with parallax background singer-bg.png (C = выразительное) -->
+  <section id="hero" class="hero" data-parallax>
+    <!-- background handled in CSS + JS parallax on scroll -->
+    <div class="container hero-inner">
+      <!-- emblem logo (large) -->
+      <div class="hero-logo-wrap" aria-hidden="true">
+        <img src="logo.png" alt="RA logo" class="hero-logo">
       </div>
 
-      <div class="container courses-grid">
-        <article class="course-card glowing">
-          <h3>Премиум формат (индивидуально)</h3>
-          <div class="price">990 000 ₸</div>
+      <h1 class="hero-title">Путь к вашему настоящему голосу, свободе и силе звучания</h1>
+      <p class="hero-sub">Голос, который услышат. Уверенность. Сцена. Признание.</p>
+
+      <ul class="hero-benefits">
+        <li class="pill">Освобождение голоса</li>
+        <li class="pill">Уверенность в себе</li>
+        <li class="pill">Сценическая свобода</li>
+      </ul>
+
+      <div class="hero-cta">
+        <a class="btn-primary" href="#contact">Записаться</a>
+        <a class="btn-ghost" href="#about">Узнать о методике</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice Studio / Why -->
+  <section id="why" class="why">
+    <div class="container">
+      <h2 class="section-title">Voice Studio</h2>
+      <p class="section-lead">Раскройте голос, снимите внутренние зажимы и почувствуйте сценическую свободу. Терапевтический вокал международного уровня.</p>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">📘</div>
+          <h3>Авторская методика</h3>
+          <p>Педагоги обучены лично Радой и работают по её терапевтической системе.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Сертифицированная команда</h3>
+          <p>Экспертные педагоги с результатом.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🫶</div>
+          <h3>Голос + тело + психика</h3>
+          <p>Интеграция техники, эмоций и тела.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Ученики по всему миру</h3>
+          <p>Сотни трансформаций и выступлений.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses section (separated with gradient cover) -->
+  <section id="courses" class="courses">
+    <div class="container">
+      <div class="courses-head">
+        <h2 class="section-title">Терапевтический вокал — курсы</h2>
+        <p class="section-lead">Выберите формат обучения, который поможет раскрыть голос и уверенность.</p>
+      </div>
+
+      <!-- floating gold glow background for the block (visual separation) -->
+      <div class="courses-grid">
+        <!-- Course card template -->
+        <article class="course-card">
+          <div class="course-top">
+            <h3 class="course-title">Премиум формат (индивидуально)</h3>
+            <div class="course-price">990 000 ₸</div>
+          </div>
+
           <ul class="course-features">
             <li>Максимальное внимание</li>
             <li>Дыхание, подача, диапазон</li>
             <li>Снятие голосовых и телесных зажимов</li>
           </ul>
-          <div class="course-cta">
-            <a class="btn kaspi" href="#contact">Kaspi Pay</a>
+
+          <div class="course-actions">
+            <a class="kaspi-btn" href="#">Kaspi Pay</a>
           </div>
         </article>
 
-        <article class="course-card glowing">
-          <h3>VIP группа (до 5 чел)</h3>
-          <div class="price">495 000 ₸</div>
+        <article class="course-card">
+          <div class="course-top">
+            <h3 class="course-title">VIP группа (до 5 чел)</h3>
+            <div class="course-price">495 000 ₸</div>
+          </div>
+
           <ul class="course-features">
-            <li>Почти индивидуальная работа</li>
+            <li>Малая группа — почти индивидуально</li>
             <li>Психология голоса</li>
-            <li>Сценическая свобода</li>
           </ul>
-          <div class="course-cta">
-            <a class="btn kaspi" href="#contact">Kaspi Pay</a>
+
+          <div class="course-actions">
+            <a class="kaspi-btn" href="#">Kaspi Pay</a>
           </div>
         </article>
 
-        <article class="course-card glowing">
-          <h3>Группа (до 10 чел)</h3>
-          <div class="price">350 000 ₸</div>
+        <article class="course-card">
+          <div class="course-top">
+            <h3 class="course-title">Группа (до 10 чел)</h3>
+            <div class="course-price">350 000 ₸</div>
+          </div>
+
           <ul class="course-features">
             <li>Практика в группе</li>
             <li>Преодоление барьеров</li>
           </ul>
-          <div class="course-cta">
-            <a class="btn kaspi" href="#contact">Kaspi Pay</a>
+
+          <div class="course-actions">
+            <a class="kaspi-btn" href="#">Kaspi Pay</a>
           </div>
         </article>
 
-        <article class="course-card glowing">
-          <h3>Пары</h3>
-          <div class="price">1 200 000 ₸</div>
-          <ul class="course-features">
-            <li>Гармония в голосе</li>
-            <li>Творческий путь вместе</li>
-          </ul>
-          <div class="course-cta">
-            <a class="btn kaspi" href="#contact">Kaspi Pay</a>
+        <article class="course-card featured">
+          <div class="course-top">
+            <h3 class="course-title">Полный курс — Трансформация</h3>
+            <div class="course-price">2 200 000 ₸</div>
           </div>
-        </article>
 
-        <article class="course-card glowing featured">
-          <h3>Полный курс — Трансформация</h3>
-          <div class="price">2 200 000 ₸</div>
           <ul class="course-features">
             <li>Полная программа</li>
             <li>Индивидуальная траектория</li>
-            <li>Записи, выступления, уверенность</li>
+            <li>Выступления и записи</li>
           </ul>
-          <div class="course-cta">
-            <a class="btn kaspi" href="#contact">Kaspi Pay</a>
+
+          <div class="course-actions">
+            <a class="kaspi-btn" href="#">Kaspi Pay</a>
           </div>
         </article>
 
-        <article class="course-card glowing">
-          <h3>Пробный урок</h3>
-          <div class="price">54 000 ₸</div>
-          <ul class="course-features">
-            <li>Первый шаг к вашему голосу</li>
-          </ul>
-          <div class="course-cta">
-            <a class="btn kaspi" href="#contact">Записаться</a>
+        <!-- smaller cards -->
+        <article class="course-card">
+          <div class="course-top">
+            <h3 class="course-title">Одна сессия</h3>
+            <div class="course-price">108 000 ₸</div>
+          </div>
+          <div class="course-actions">
+            <a class="kaspi-btn" href="#">Kaspi Pay</a>
+          </div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-top">
+            <h3 class="course-title">Пробный урок</h3>
+            <div class="course-price">54 000 ₸</div>
+          </div>
+          <div class="course-actions">
+            <a class="kaspi-btn" href="#">Записаться</a>
           </div>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Rada -->
-    <section id="about" class="about-rada">
-      <div class="container about-grid">
-        <div class="about-photo">
-          <img src="rada.jpg" alt="Рада Аубакирова">
+  <!-- About Rada -->
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-photo">
+        <img src="rada.jpg" alt="Рада Аубакирова">
+      </div>
+
+      <div class="about-content">
+        <h2>Рада Аубакирова</h2>
+        <p class="about-sub">Основатель Международной школы терапевтического вокала</p>
+        <p class="about-text">Автор уникальной методики работы с голосом через тело и психику. Более 10 лет практики, сотни трансформаций: артисты, спикеры и педагоги.</p>
+
+        <a class="btn-primary" href="#contact">Записаться на консультацию</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="section-title">Часто задаваемые вопросы</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">Нужен ли опыт в вокале?</button>
+          <div class="faq-a">Нет, методика подходит для всех уровней.</div>
         </div>
-        <div class="about-content">
-          <h2>Рада Аубакирова</h2>
-          <p class="about-sub">Основатель Международной школы терапевтического вокала</p>
-          <p class="about-text">Автор уникальной методики работы с голосом через тело и психику. Более 10 лет практики, сотни трансформаций: артисты, спикеры, педагоги и люди, стремящиеся к истинному звучанию.</p>
-          <a href="#contact" class="btn pill gold">Записаться на консультацию</a>
+        <div class="faq-item">
+          <button class="faq-q">Онлайн или оффлайн?</button>
+          <div class="faq-a">Оба формата — выберите удобный.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Сколько длится урок?</button>
+          <div class="faq-a">Стандарт — 60 минут. Есть сессии 90 минут.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-      <div class="container">
-        <h2 class="section-title">Часто задаваемые вопросы</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <h3 class="faq-question">Нужен ли опыт в вокале?</h3>
-            <div class="faq-answer">Нет, наша методика подходит как для начинающих, так и для тех, кто уже имеет опыт.</div>
-          </div>
-          <div class="faq-item">
-            <h3 class="faq-question">Онлайн или оффлайн?</h3>
-            <div class="faq-answer">Мы предлагаем оба формата. Выберите удобный способ обучения.</div>
-          </div>
-          <div class="faq-item">
-            <h3 class="faq-question">Сколько длится урок?</h3>
-            <div class="faq-answer">Стандартный урок — 60 минут. Для индивидуальных программ — до 90 минут.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact / CTA -->
-    <section id="contact" class="final-cta">
-      <div class="container">
+  <!-- Final CTA / Contact -->
+  <section id="contact" class="final-cta">
+    <div class="container final-inner">
+      <div>
         <h2 class="cta-title">Ваш голос — ваше влияние</h2>
-        <p class="muted">Готовы начать? Оставьте заявку — мы свяжемся для согласования удобного времени.</p>
-        <div class="cta-row">
-          <a class="btn gold large" href="#contact">Записаться</a>
-          <a class="btn outline" href="https://wa.me/" target="_blank">Написать в WhatsApp</a>
-        </div>
+        <p class="cta-sub">Готовы начать? Оставьте заявку — мы согласуем удобное время.</p>
       </div>
-    </section>
-  </main>
+
+      <div class="contact-actions">
+        <a class="btn-primary" href="#">Записаться</a>
+        <a class="btn-outline" href="#">Написать в WhatsApp</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-links">
         <a href="#">Kaspi</a>
         <a href="#">WhatsApp</a>
         <a href="#">Instagram</a>
       </div>
-      <div class="copyright">© 2025 Международная школа терапевтического вокала — Рада Аубакирова</div>
+      <p class="copyright">© 2025 Международная школа терапевтического вокала — Рада Аубакирова</p>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script>
-    // Burger menu
-    (function() {
-      const burger = document.getElementById('burger');
-      const nav = document.getElementById('nav');
+    // BURGER MENU
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobileNav');
 
-      function toggleMenu() {
-        const opened = nav.classList.toggle('open');
-        burger.setAttribute('aria-expanded', opened ? 'true' : 'false');
-      }
+    burger && burger.addEventListener('click', () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!expanded));
+      mobile.classList.toggle('open');
+      mobile.setAttribute('aria-hidden', String(expanded));
+    });
 
-      burger.addEventListener('click', toggleMenu);
-      // close when clicking outside on mobile
-      document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !burger.contains(e.target) && nav.classList.contains('open')) {
-          nav.classList.remove('open');
-          burger.setAttribute('aria-expanded','false');
-        }
+    // Close mobile menu after click on link
+    document.querySelectorAll('#mobileNav a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobile.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        mobile.setAttribute('aria-hidden', 'true');
       });
-    })();
-
-    // Simple parallax for hero
-    (function(){
-      const hero = document.querySelector('[data-parallax]');
-      if (!hero) return;
-
-      const onScroll = () => {
-        const scrolled = window.scrollY;
-        // move background slower than scroll
-        hero.style.backgroundPosition = `center ${Math.max(-30, -scrolled * 0.15)}px`;
-      };
-
-      // Throttle rAF
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            onScroll();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-
-      // initial
-      onScroll();
-    })();
+    });
 
     // FAQ accordion
-    (function(){
-      document.querySelectorAll('.faq-question').forEach(q => {
-        q.addEventListener('click', () => {
-          const parent = q.parentElement;
-          const answer = parent.querySelector('.faq-answer');
-          if (!answer) return;
-          const opened = parent.classList.toggle('open');
-          answer.style.maxHeight = opened ? (answer.scrollHeight + 'px') : '0';
-        });
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      a.style.maxHeight = '0px';
+      q.addEventListener('click', () => {
+        const opened = a.style.maxHeight && a.style.maxHeight !== '0px';
+        document.querySelectorAll('.faq-a').forEach(x => x.style.maxHeight = '0px');
+        if (!opened) {
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
       });
-    })();
+    });
+
+    // Parallax: move hero background slightly on scroll
+    const hero = document.querySelector('[data-parallax]');
+    if (hero) {
+      // only small parallax for performance on mobile
+      window.addEventListener('scroll', () => {
+        const sc = window.pageYOffset;
+        // translateY background position slightly
+        hero.style.backgroundPosition = `center ${-sc * 0.15}px`;
+      }, { passive: true });
+    }
+
+    // Smooth scroll for anchor buttons
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+      });
+    });
   </script>
 </body>
 </html>
