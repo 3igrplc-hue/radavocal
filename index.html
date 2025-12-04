@@ -17,25 +17,30 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#hero">
-        <!-- small text-brand in header (keeps page clean) -->
-        Rada Vocal
-      </a>
+      <a class="brand" href="#hero">Rada Vocal</a>
 
-      <button id="burger" class="burger" aria-label="menu" aria-expanded="false">
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
+      <!-- burger visible only on mobile -->
+      <button id="burger" class="burger" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
+
+      <!-- desktop menu -->
+      <nav class="desktop-nav">
+        <a href="#courses">Курсы</a>
+        <a href="#why">Почему</a>
+        <a href="#about">О Раде</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn-small" href="#contact">Записаться</a>
+      </nav>
     </div>
 
-    <!-- mobile nav -->
-    <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <!-- mobile menu -->
+    <nav id="mobileNav" class="mobile-nav">
       <a href="#courses">Курсы</a>
       <a href="#why">Почему</a>
       <a href="#about">О Раде</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="btn-outline">Записаться</a>
+      <a class="btn-outline" href="#contact">Записаться</a>
     </nav>
   </header>
 

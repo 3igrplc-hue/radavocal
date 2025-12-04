@@ -290,4 +290,80 @@ p, li, .hero-sub, .about-text, .feature-card p { color: #d6cbbf; } /* muted off-
 /* Small accessibility improvements */
 a:focus, button:focus { outline: 3px solid rgba(198,160,100,0.18); outline-offset: 2px; }
 
+/* reset desktop/mobile conflict */
+.desktop-nav { 
+  display: none;
+}
+.burger { 
+  display: flex; 
+}
+
+/* burger style */
+.burger {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 36px; height: 36px;
+  background: transparent;
+  border: 0;
+}
+.burger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: #e4d5b8;
+  border-radius: 2px;
+}
+
+/* desktop menu only on large screens */
+@media (min-width: 900px) {
+  .desktop-nav {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+/* mobile menu closed by default */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 14px;
+  background: rgba(10, 7, 6, 0.96);
+}
+
+.mobile-nav.open {
+  display: flex;
+}
+
+/* gradient plates under blocks */
+.feature-card,
+.course-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.course-card {
+  position: relative;
+}
+
+.course-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(200,160,60,0.15),
+    transparent 60%
+  );
+  z-index: 0;
+}
+
 /* End */
