@@ -366,4 +366,50 @@ a:focus, button:focus { outline: 3px solid rgba(198,160,100,0.18); outline-offse
   z-index: 0;
 }
 
+/* WHY SECTION */
+.why-section {
+  padding: 60px 0;
+}
+
+.why-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.why-card {
+  padding: 26px;
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.015)
+  );
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 35px rgba(0,0,0,0.25);
+}
+
+.why-icon img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+.why-card h3 {
+  font-size: 20px;
+  color: #f2e6c9;
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  color: #c1b59a;
+  font-size: 16px;
+}
+
+/* desktop grid */
+@media (min-width: 900px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* End */
