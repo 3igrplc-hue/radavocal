@@ -25,7 +25,12 @@
             <a href="#contact" class="rv-cta">Записаться</a>
         </nav>
 
-        <div class="rv-burger" id="burgerBtn">&#9776;</div>
+        <!-- 🔧 PATCH 1 — Бургер с тремя полосками -->
+        <div class="rv-burger" id="burgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 
     <div class="rv-mobile-menu" id="mobileNav">
@@ -41,22 +46,42 @@
 <!-- ======================= HERO ======================= -->
 <section class="hero">
 
-    <!-- Большой круг-логотип сзади -->
-    <img src="logo.png" class="hero-logo-bg" alt="Rada Vocal Logo">
-
     <!-- Частицы золота -->
     <canvas id="goldParticles"></canvas>
 
-    <!-- Певица -->
-    <img src="singer-fg.png" class="hero-singer" alt="Singer">
+    <!-- 🔧 PATCH 2 — Новый блок hero-wrapper -->
+    <div class="hero-wrapper">
 
-    <div class="hero-content">
-        <h1 class="hero-title">Путь к вашему настоящему голосу<br> свободе и силе звучания</h1>
+        <!-- Фон — увеличенный логотип -->
+        <img src="/logo.png" class="hero-logo-bg" alt="Logo Background">
 
-        <p class="hero-subtitle">Голос, который слышат. Уверенность. Сцена. Признание.</p>
+        <!-- Фото певицы по центру -->
+        <img src="/singer-fg.png" class="hero-singer" alt="Singer">
 
-        <button class="cta-button">Записаться</button>
+        <!-- Основной текст -->
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Путь к вашему настоящему голосу,<br>
+                свободе и силе звучания
+            </h1>
+            <p class="hero-subtitle">
+                Голос, который услышат. Уверенность. Сцена. Признание.
+            </p>
+
+            <div class="hero-buttons">
+                <a class="btn-primary" href="#signup">Записаться</a>
+                <a class="btn-secondary" href="#method">Узнать о методике</a>
+            </div>
+
+            <div class="hero-tags">
+                <div class="hero-pill">Освобождение голоса</div>
+                <div class="hero-pill">Уверенность в себе</div>
+                <div class="hero-pill">Сценическая свобода</div>
+            </div>
+        </div>
+
     </div>
+
 </section>
 
 
