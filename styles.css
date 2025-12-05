@@ -145,19 +145,19 @@ body{
   background: radial-gradient(circle at 50% 30%, rgba(255,220,170,0.02) 0%, transparent 25%), linear-gradient(180deg, #130f0e, #0b0706 60%);
 }
 
-/* 🔧 PATCH B — Логотип как фон в HERO */
+/* ✅ 2. Логотип слишком бледный → делаем читаемым, но не ярким */
 .hero-logo-bg {
     position: absolute;
-    top: 18%;
+    top: 8%;               /* выше — видно лучше */
     left: 50%;
     transform: translateX(-50%);
-    width: 360px;
-    height: 360px;
-    opacity: 0.10;
+    width: 430px;          /* больше, сочнее */
+    height: 430px;
+    opacity: 0.18;         /* было 0.10 — увеличиваем читаемость */
+    filter: blur(1px);     /* лёгкое размытие, чтобы не спорило с текстом */
     z-index: 1;
     object-fit: contain;
     border-radius: 50%;
-    filter: blur(0.8px) saturate(0.95);
     pointer-events: none;
 }
 
@@ -179,19 +179,19 @@ body{
   position:absolute; inset:0; z-index:2; pointer-events:none;
 }
 
-/* 🔧 PATCH C — Фото певицы по центру */
+/* ✅ 1. Фото певицы — поднять выше + сделать круг чуть больше, чтобы не резало лоб */
 .hero-singer {
     position: relative;
-    width: 260px;
-    height: 260px;
+    width: 300px;      /* было 260 — увеличиваем */
+    height: 300px;
     object-fit: cover;
     border-radius: 50%;
-    margin: 0 auto 18px;
+    margin: -40px auto 12px; /* поднимаем вверх, чтобы не резало голову */
     display: block;
     border: none;
     box-shadow:
-        0 25px 60px rgba(0,0,0,0.55),
-        0 0 35px rgba(212,166,103,0.45);
+        0 25px 60px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(212, 166, 103, 0.45);
     z-index: 6;
     transition: transform 0.6s ease-out;
     pointer-events: none;
@@ -205,11 +205,11 @@ body{
 }
 .hero-singer.animate { animation: singerFloat 7s ease-in-out infinite; }
 
-/* 🔧 PATCH D — Центровка текста HERO */
+/* ✅ 3. Текст ниже, чтобы не перекрывать логотип */
 .hero-content {
     text-align: center;
     max-width: 640px;
-    margin: 0 auto;
+    margin: 40px auto 0;   /* +40px вниз */
     position: relative;
     z-index: 7;
     padding: 10px 18px;
@@ -403,8 +403,19 @@ body{
     gap: 8px;
     padding: 16px;
   }
-  .hero-logo-bg{width:320px;height:320px;top:20%}
-  .hero-singer{width:260px;height:260px}
+  .hero-logo-bg{
+    width: 380px;
+    height: 380px;
+    top: 15%;
+  }
+  .hero-singer{
+    width: 280px;
+    height: 280px;
+    margin: -30px auto 12px;
+  }
+  .hero-content {
+    margin: 30px auto 0;
+  }
   .courses-grid{grid-template-columns:1fr}
   .feature-grid{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;text-align:center}
@@ -412,7 +423,19 @@ body{
 @media (max-width:480px){
   .hero{padding:64px 10px 60px}
   .hero-title{font-size:20px}
-  .hero-singer{width:180px;height:180px}
+  .hero-logo-bg{
+    width: 280px;
+    height: 280px;
+    top: 12%;
+  }
+  .hero-singer{
+    width: 200px;
+    height: 200px;
+    margin: -20px auto 10px;
+  }
+  .hero-content {
+    margin: 20px auto 0;
+  }
   .rv-container{padding:8px}
   .hero-buttons {
     flex-direction: column;
