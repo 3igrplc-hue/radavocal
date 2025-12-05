@@ -93,15 +93,44 @@ body{
     transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Mobile menu */
-.rv-mobile-menu{
-  display:none;
-  position:relative;
-  background:linear-gradient(180deg, rgba(6,5,5,0.98), rgba(6,5,5,0.95));
-  padding:16px;
-  gap:12px;
+/* PATCH 1 — BURGER FIX — меню скрывается/показывается */
+.rv-mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 16px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(6,5,5,0.98), rgba(6,5,5,0.95));
 }
-.rv-mobile-menu a{display:block;padding:10px 0;color:var(--text);text-decoration:none}
+
+.rv-mobile-menu.open {
+    display: flex;
+}
+
+.rv-mobile-menu a {
+    display: block;
+    padding: 10px 0;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color var(--transition);
+}
+
+.rv-mobile-menu a:hover {
+    color: var(--gold-1);
+}
+
+.rv-mobile-menu .rv-cta {
+    background: linear-gradient(90deg,var(--gold-1),var(--gold-2));
+    padding: 10px 20px;
+    border-radius: 28px;
+    color: #120a06;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+}
 
 /* ---------- HERO ---------- */
 .hero{
@@ -368,7 +397,12 @@ body{
   .about-grid{grid-template-columns:1fr}
   .rv-nav{display:none}
   .rv-burger{display:block}
-  .rv-mobile-menu{display:flex;flex-direction:column;gap:8px}
+  .rv-mobile-menu.open {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+  }
   .hero-logo-bg{width:320px;height:320px;top:20%}
   .hero-singer{width:260px;height:260px}
   .courses-grid{grid-template-columns:1fr}
@@ -380,4 +414,12 @@ body{
   .hero-title{font-size:20px}
   .hero-singer{width:180px;height:180px}
   .rv-container{padding:8px}
+  .hero-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
 }
