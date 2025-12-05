@@ -3,6 +3,12 @@
    Enhanced with rotation, parallax, particles
    ============================================ */
 
+/* --- FIX: стабильный transform для singer и logo --- */
+let logoParallaxX = 0;
+let logoParallaxY = 0;
+let singerParallaxX = 0;
+let singerParallaxY = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
     
     /* ========== БУРГЕР МЕНЮ ========== */
@@ -68,6 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let rotationSpeed = 1; // 1=normal, 2=fast, 3=faster
     
     if (rotatingLogo) {
+        // Инициализация CSS переменных
+        rotatingLogo.style.setProperty("--px", "0px");
+        rotatingLogo.style.setProperty("--py", "0px");
+        
         // Клик для изменения скорости
         rotatingLogo.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -90,13 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Визуальная обратная связь
-            rotatingLogo.style.transform = `translateX(-50%) scale(1.1)`;
+            rotatingLogo.style.transform = `translateX(-50%) translate3d(var(--px,0), var(--py,0), 0) scale(1.1)`;
             setTimeout(() => {
-                rotatingLogo.style.transform = `translateX(-50%) scale(1)`;
+                rotatingLogo.style.transform = `translateX(-50%) translate3d(var(--px,0), var(--py,0), 0) scale(1)`;
             }, 300);
         });
         
-        // Параллакс при движении мыши
+        // Параллакс при движении мыши - PATCH 1
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) {
                 const mouseX = e.clientX / window.innerWidth;
@@ -105,13 +115,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 const moveX = (mouseX - 0.5) * 25;
                 const moveY = (mouseY - 0.5) * 15;
                 
-                rotatingLogo.style.transform = `translateX(-50%) translate3d(${moveX}px, ${moveY}px, 0)`;
+                // PATCH 1: Используем CSS переменные вместо прямого transform
+                logoParallaxX = moveX;
+                logoParallaxY = moveY;
+                rotatingLogo.style.setProperty("--px", logoParallaxX + "px");
+                rotatingLogo.style.setProperty("--py", logoParallaxY + "px");
             }
-        });
+        }, { passive: true });
         
-        // Возврат в исходное положение
+        // Возврат в исходное положение - PATCH 5
         document.addEventListener('mouseleave', () => {
-            rotatingLogo.style.transform = `translateX(-50%)`;
+            // PATCH 5: Используем CSS переменные
+            rotatingLogo.style.setProperty("--px", "0px");
+            rotatingLogo.style.setProperty("--py", "0px");
         });
     }
     
@@ -120,7 +136,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const singerImg = document.querySelector('.hero-singer');
     
     if (singerContainer && singerImg && window.innerWidth > 768) {
-        // Параллакс при движении мыши
+        // Инициализация CSS переменных для фото
+        singerImg.style.setProperty('--sx', '0px');
+        singerImg.style.setProperty('--sy', '0px');
+        
+        // Параллакс при движении мыши - PATCH 1
         document.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
@@ -128,17 +148,23 @@ document.addEventListener('DOMContentLoaded', function() {
             const moveX = (mouseX - 0.5) * 20;
             const moveY = (mouseY - 0.5) * 15;
             
-            singerImg.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+            // PATCH 1: Используем CSS переменные
+            singerParallaxX = moveX;
+            singerParallaxY = moveY;
+            singerImg.style.setProperty('--sx', singerParallaxX + 'px');
+            singerImg.style.setProperty('--sy', singerParallaxY + 'px');
             
             // Слегка поворачиваем контейнер
             const rotateY = (mouseX - 0.5) * 10;
             const rotateX = -(mouseY - 0.5) * 8;
             singerContainer.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-        });
+        }, { passive: true });
         
         // Возврат в исходное положение
         document.addEventListener('mouseleave', () => {
-            singerImg.style.transform = `translate3d(0, 0, 0)`;
+            // PATCH 1: Сбрасываем CSS переменные
+            singerImg.style.setProperty('--sx', '0px');
+            singerImg.style.setProperty('--sy', '0px');
             singerContainer.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg)`;
         });
         
@@ -395,11 +421,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        /* Анимация для фона */
-        @keyframes backgroundShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Для фото певицы: добавляем поддержку CSS переменных для параллакса */
+        .hero-singer.transparent-bg {
+            transform: translate3d(var(--sx, 0), var(--sy, 0), 0);
         }
     `;
     document.head.appendChild(animationStyle);
@@ -501,35 +525,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
-    /* ========== ПАРАЛЛАКС ПРИ СКРОЛЛЕ ========== */
-    let lastScrollY = window.scrollY;
-    
-    function updateParallax() {
-        const scrollY = window.scrollY;
-        const delta = scrollY - lastScrollY;
-        
-        // Параллакс для элементов при скролле
-        if (rotatingLogo) {
-            const logoY = scrollY * 0.05;
-            rotatingLogo.style.transform = `translateX(-50%) translateY(${logoY}px)`;
-        }
-        
-        if (singerImg) {
-            const singerY = scrollY * 0.1;
-            singerImg.style.transform = `translateY(${singerY}px)`;
-        }
-        
-        lastScrollY = scrollY;
-    }
-    
-    // Оптимизированный обработчик скролла
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        if (scrollTimeout) {
-            cancelAnimationFrame(scrollTimeout);
-        }
-        scrollTimeout = requestAnimationFrame(updateParallax);
-    }, { passive: true });
+    /* ========== УБРАН ПАРАЛЛАКС ПРИ СКРОЛЛЕ (PATCH 1) ========== */
+    // Убираем конфликтующие параллаксы при скролле
     
     /* ========== КОНТРОЛЬ ПЕРЕПОЛНЕНИЯ ========== */
     function checkOverflow() {
