@@ -136,22 +136,19 @@ body{
 /* ---------- HERO ---------- */
 .hero{
   position:relative;
-  min-height:86vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  /* ✅ PATCH №1 — Уменьшаем верхний паддинг чтобы не было тёмной полосы */
-  padding:40px 0 60px; /* уменьшаем верхний паддинг чтобы не было тёмной полосы */
+  /* ✅ ПАТЧ #2 — Исправляем тёмную плашку сверху */
+  min-height:auto;     /* убираем лишнее растягивание */
+  padding:20px 0 40px; /* уменьшено для мобильного */
   overflow:hidden;
   background: 
     radial-gradient(circle at 50% 30%, rgba(255,220,170,0.03) 0%, transparent 25%),
     linear-gradient(180deg, #130f0e, #0b0706 60%);
-  /* 🔧 PATCH: ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ */
+  /* ✅ ПАТЧ #4 — Убираем второй display:flex, исправляем структуру */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
+  text-align: center;
 }
 
 /* 🔥 ВРАЩАЮЩИЙСЯ ЛОГОТИП */
@@ -163,10 +160,12 @@ body{
     width: 640px;                 /* Крупнее → премиальный вид */
     height: 640px;
     opacity: 0.48;                /* Было 0.42 → чуть ярче */
-    /* ✅ PATCH №2 — Заставляем логотип быть поверх canvas */
+    /* ✅ ПАТЧ #2 — Заставляем логотип быть поверх canvas */
     z-index: 50; /* заставляем логотип быть поверх canvas */
     object-fit: contain;
-    pointer-events: none;
+    /* ✅ ПАТЧ #1 — Исправляем кликабельность логотипа */
+    pointer-events: auto; /* теперь можно кликать */
+    cursor: pointer;      /* курсор показывает интерактив */
 
     /* более глубокое золото */
     filter:
@@ -328,7 +327,7 @@ body{
 /* Основной контент героя */
 .hero-content {
     text-align: center;
-    /* ✅ PATCH №4 — Уменьшаем расстояние между певицей и текстом */
+    /* ✅ ПАТЧ #4 — Уменьшаем расстояние между певицей и текстом */
     margin: 20px auto 0 !important;
     max-width: 720px;
     padding-top: 40px;   /* текст ниже → не перекрывает RA */
@@ -727,7 +726,7 @@ body{
     will-change: transform, filter;
 }
 
-/* ---------- ✅ PATCH №2 — Canvas должен быть ниже всех ---------- */
+/* ---------- ✅ ПАТЧ #2 — Canvas должен быть ниже всех ---------- */
 #goldParticles {
     z-index: 1 !important; /* canvas ниже всех */
     pointer-events: none; /* чтобы он не блокировал клики */
@@ -758,15 +757,12 @@ body{
 @media (max-width: 768px){
   .features-grid,.courses-grid,.game-grid{grid-template-columns:1fr;}
   .rotating-logo{width:420px;height:420px;top:10%;}
-  /* ✅ PATCH №3 — Уменьшаем отступ сверху у певицы на мобильных */
   .singer-container{
     width:280px;height:280px;
-    margin-top: -20px !important; /* ближе к логотипу */
   }
-  .hero{padding:40px 0 60px;}
+  .hero{padding:20px 0 40px;}
   .section-title{font-size:28px;}
   .hero-content{
-    /* ✅ PATCH №4 — Уменьшаем отступ между певицей и текстом на мобильных */
     margin-top: 10px !important;
     text-align:center;
     padding:0 15px;
@@ -776,7 +772,7 @@ body{
 
 @media (max-width: 480px){
   .rotating-logo{width:340px;height:340px;}
-  .singer-container{width:240px;height:240px;margin-top:-20px !important;}
+  .singer-container{width:240px;height:240px;}
   .hero-title{font-size:26px;}
   .hero-subtitle{font-size:1rem;}
   .hero-pill{padding:10px 18px;font-size:0.85rem;}
@@ -784,4 +780,15 @@ body{
   .footer-links{gap:15px;}
   .cta-title{font-size:28px;flex-direction:column;gap:8px;}
   .cta-button.large{padding:16px 28px;font-size:1rem;}
+}
+
+/* ✅ ПАТЧ #3 — MOBILE FIX — singer ближе к логотипу и текст ближе к певице */
+@media (max-width: 768px) {
+    .singer-container {
+        margin-top: -65px !important; /* ближе к лого */
+    }
+    .hero-content {
+        margin-top: -5px !important;  /* ближе к певице */
+        padding-top: 10px !important;
+    }
 }
