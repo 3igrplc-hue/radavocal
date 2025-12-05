@@ -100,13 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Визуальная обратная связь
-            rotatingLogo.style.transform = `translateX(-50%) translate3d(var(--px,0), var(--py,0), 0) scale(1.1)`;
+            rotatingLogo.style.transform = `translateX(-50%) scale(1.1)`;
             setTimeout(() => {
-                rotatingLogo.style.transform = `translateX(-50%) translate3d(var(--px,0), var(--py,0), 0) scale(1)`;
+                rotatingLogo.style.transform = `translateX(-50%) scale(1)`;
             }, 300);
         });
         
-        // Параллакс при движении мыши - PATCH 1
+        // Параллакс при движении мыши
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) {
                 const mouseX = e.clientX / window.innerWidth;
@@ -115,32 +115,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 const moveX = (mouseX - 0.5) * 25;
                 const moveY = (mouseY - 0.5) * 15;
                 
-                // PATCH 1: Используем CSS переменные вместо прямого transform
+                // Используем CSS переменные вместо прямого transform
                 logoParallaxX = moveX;
                 logoParallaxY = moveY;
-                rotatingLogo.style.setProperty("--px", logoParallaxX + "px");
-                rotatingLogo.style.setProperty("--py", logoParallaxY + "px");
+                
+                // Вращение теперь работает только через CSS анимацию
+                // Параллакс оставляем минимальным, чтобы не конфликтовать
             }
         }, { passive: true });
         
-        // Возврат в исходное положение - PATCH 5
+        // Возврат в исходное положение
         document.addEventListener('mouseleave', () => {
-            // PATCH 5: Используем CSS переменные
-            rotatingLogo.style.setProperty("--px", "0px");
-            rotatingLogo.style.setProperty("--py", "0px");
+            // CSS переменные сбрасываются автоматически через CSS
         });
     }
     
     /* ========== ПАРАЛЛАКС ДЛЯ ФОТО ПЕВИЦЫ ========== */
+    // 🔧 PATCH: Исправляем выборку селектора
     const singerContainer = document.querySelector('.singer-container');
-    const singerImg = document.querySelector('.hero-singer');
+    const singerImg = document.querySelector('.hero-singer.transparent-bg'); // ИСПРАВЛЕНО!
     
     if (singerContainer && singerImg && window.innerWidth > 768) {
         // Инициализация CSS переменных для фото
         singerImg.style.setProperty('--sx', '0px');
         singerImg.style.setProperty('--sy', '0px');
         
-        // Параллакс при движении мыши - PATCH 1
+        // Параллакс при движении мыши
         document.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const moveX = (mouseX - 0.5) * 20;
             const moveY = (mouseY - 0.5) * 15;
             
-            // PATCH 1: Используем CSS переменные
+            // Используем CSS переменные
             singerParallaxX = moveX;
             singerParallaxY = moveY;
             singerImg.style.setProperty('--sx', singerParallaxX + 'px');
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Возврат в исходное положение
         document.addEventListener('mouseleave', () => {
-            // PATCH 1: Сбрасываем CSS переменные
+            // Сбрасываем CSS переменные
             singerImg.style.setProperty('--sx', '0px');
             singerImg.style.setProperty('--sy', '0px');
             singerContainer.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg)`;
@@ -420,11 +420,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 transform: translateY(0);
             }
         }
-        
-        /* Для фото певицы: добавляем поддержку CSS переменных для параллакса */
-        .hero-singer.transparent-bg {
-            transform: translate3d(var(--sx, 0), var(--sy, 0), 0);
-        }
     `;
     document.head.appendChild(animationStyle);
     
@@ -525,8 +520,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
-    /* ========== УБРАН ПАРАЛЛАКС ПРИ СКРОЛЛЕ (PATCH 1) ========== */
-    // Убираем конфликтующие параллаксы при скролле
+    /* ========== УБРАН ПАРАЛЛАКС ПРИ СКРОЛЛЕ ========== */
+    // Убираем конфликтующие параллаксы при скролле для стабильности
     
     /* ========== КОНТРОЛЬ ПЕРЕПОЛНЕНИЯ ========== */
     function checkOverflow() {
