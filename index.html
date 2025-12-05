@@ -8,6 +8,9 @@
 
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -15,17 +18,20 @@
 <!-- ======================= HEADER ======================= -->
 <header class="rv-header">
     <div class="rv-container">
-        <div class="rv-logo">Rada Vocal</div>
+        <div class="rv-logo">
+            <i class="fas fa-music"></i>
+            Rada Vocal
+        </div>
 
         <nav class="rv-nav">
-            <a href="#courses">Курсы</a>
-            <a href="#about">О Раде</a>
-            <a href="#games">Игры</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact" class="rv-cta">Записаться</a>
+            <a href="#courses"><i class="fas fa-graduation-cap"></i> Курсы</a>
+            <a href="#about"><i class="fas fa-user"></i> О Раде</a>
+            <a href="#games"><i class="fas fa-gamepad"></i> Игры</a>
+            <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="#contact" class="rv-cta"><i class="fas fa-pen"></i> Записаться</a>
         </nav>
 
-        <!-- 🔧 PATCH 1 — Бургер с тремя полосками -->
+        <!-- Бургер меню -->
         <div class="rv-burger" id="burgerBtn">
             <span></span>
             <span></span>
@@ -34,132 +40,162 @@
     </div>
 
     <div class="rv-mobile-menu" id="mobileNav">
-        <a href="#courses">Курсы</a>
-        <a href="#about">О Раде</a>
-        <a href="#games">Игры</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="rv-cta">Записаться</a>
+        <a href="#courses"><i class="fas fa-graduation-cap"></i> Курсы</a>
+        <a href="#about"><i class="fas fa-user"></i> О Раде</a>
+        <a href="#games"><i class="fas fa-gamepad"></i> Игры</a>
+        <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="#contact" class="rv-cta"><i class="fas fa-pen"></i> Записаться</a>
     </div>
 </header>
 
 
 <!-- ======================= HERO ======================= -->
 <section class="hero">
-
     <!-- Частицы золота -->
     <canvas id="goldParticles"></canvas>
 
-    <!-- 🔧 PATCH 2 — Новый блок hero-wrapper -->
-    <div class="hero-wrapper">
+    <!-- Вращающийся логотип -->
+    <img src="/logo.png" class="hero-logo-bg rotating-logo" alt="Logo Background">
+    <div class="logo-text-hint">Кликни для ускорения вращения</div>
 
-        <!-- Фон — увеличенный логотип -->
-        <img src="/logo.png" class="hero-logo-bg" alt="Logo Background">
+    <!-- Золотой туман -->
+    <div class="gold-mist"></div>
 
-        <!-- Фото певицы по центру -->
-        <img src="/singer-fg.png" class="hero-singer" alt="Singer">
-
-        <!-- Основной текст -->
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Путь к вашему настоящему голосу,<br>
-                свободе и силе звучания
-            </h1>
-            <p class="hero-subtitle">
-                Голос, который услышат. Уверенность. Сцена. Признание.
-            </p>
-
-            <div class="hero-buttons">
-                <a class="btn-primary" href="#signup">Записаться</a>
-                <a class="btn-secondary" href="#method">Узнать о методике</a>
-            </div>
-
-            <div class="hero-tags">
-                <div class="hero-pill">Освобождение голоса</div>
-                <div class="hero-pill">Уверенность в себе</div>
-                <div class="hero-pill">Сценическая свобода</div>
-            </div>
+    <!-- Контейнер для фото певицы с прозрачным фоном -->
+    <div class="singer-container">
+        <img src="/singer-fg.png" class="hero-singer transparent-bg" alt="Singer">
+        <div class="singer-glow"></div>
+        <div class="singer-hint">
+            <i class="fas fa-mouse-pointer"></i> Наведи для эффекта
         </div>
-
     </div>
 
+    <!-- Основной текст -->
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="title-glow">Путь к вашему настоящему голосу,</span><br>
+            <span class="title-glow">свободе и силе звучания</span>
+        </h1>
+        <p class="hero-subtitle">
+            <i class="fas fa-volume-up"></i> Голос, который услышат. Уверенность. Сцена. Признание.
+        </p>
+
+        <div class="hero-buttons">
+            <a class="btn-primary" href="#signup">
+                <i class="fas fa-calendar-check"></i> Записаться
+            </a>
+            <a class="btn-secondary" href="#method">
+                <i class="fas fa-book-open"></i> Узнать о методике
+            </a>
+        </div>
+
+        <div class="hero-tags">
+            <div class="hero-pill"><i class="fas fa-microphone"></i> Освобождение голоса</div>
+            <div class="hero-pill"><i class="fas fa-star"></i> Уверенность в себе</div>
+            <div class="hero-pill"><i class="fas fa-theater-masks"></i> Сценическая свобода</div>
+        </div>
+    </div>
+
+    <!-- Скролл-подсказка -->
+    <div class="scroll-hint">
+        <i class="fas fa-chevron-down"></i>
+    </div>
 </section>
 
 
 <!-- ======================= WHY ======================= -->
 <section class="why-choose">
-    <h2 class="section-title">Почему выбирают нашу школу</h2>
+    <h2 class="section-title">
+        <i class="fas fa-crown"></i> Почему выбирают нашу школу
+    </h2>
+    <p class="section-lead">Уникальный подход, меняющий жизнь через голос</p>
 
     <div class="features-grid">
-
         <div class="feature-card">
-            <span class="feature-icon">🎤</span>
+            <div class="feature-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
             <h3>Авторская методика</h3>
             <p>Глубокая работа с телом, психикой и голосом.</p>
         </div>
 
         <div class="feature-card">
-            <span class="feature-icon">⭐</span>
+            <div class="feature-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
             <h3>Сертифицированные педагоги</h3>
             <p>Команда, обученная лично Рады Аубакировой.</p>
         </div>
 
         <div class="feature-card">
-            <span class="feature-icon">💫</span>
+            <div class="feature-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
             <h3>Голос + тело + эмоции</h3>
             <p>Комплексный подход, трансформирующий человека.</p>
         </div>
 
         <div class="feature-card">
-            <span class="feature-icon">🌍</span>
+            <div class="feature-icon">
+                <i class="fas fa-globe-americas"></i>
+            </div>
             <h3>Ученики по всему миру</h3>
             <p>Тысячи голосов, которые звучат свободно.</p>
         </div>
-
     </div>
 </section>
 
 
 <!-- ======================= COURSES ======================= -->
 <section id="courses" class="courses">
-    <h2 class="section-title">Терапевтический вокал — Курсы</h2>
+    <h2 class="section-title">
+        <i class="fas fa-gem"></i> Терапевтический вокал — Курсы
+    </h2>
+    <p class="section-lead">Выберите формат, который подходит именно вам</p>
 
     <div class="courses-grid">
-
         <div class="course-card premium">
-            <span class="course-badge">Премиум</span>
+            <div class="course-badge">
+                <i class="fas fa-crown"></i> Премиум
+            </div>
             <h3 class="course-title">Индивидуально</h3>
             <div class="price">990,000 ₸</div>
             <ul>
-                <li>Максимальное внимание</li>
-                <li>Голос, дыхание, подача</li>
-                <li>Снятие зажимов</li>
-                <li>Личностная трансформация</li>
+                <li><i class="fas fa-check-circle"></i> Максимальное внимание</li>
+                <li><i class="fas fa-check-circle"></i> Голос, дыхание, подача</li>
+                <li><i class="fas fa-check-circle"></i> Снятие зажимов</li>
+                <li><i class="fas fa-check-circle"></i> Личностная трансформация</li>
             </ul>
-            <button class="kaspi-button">Kaspi Pay</button>
+            <button class="kaspi-button">
+                <i class="fas fa-wallet"></i> Kaspi Pay
+            </button>
         </div>
 
         <div class="course-card">
             <h3 class="course-title">VIP группа (до 5 чел)</h3>
             <div class="price">495,000 ₸</div>
             <ul>
-                <li>Почти индивидуальный формат</li>
-                <li>Психология голоса</li>
-                <li>Сценическая свобода</li>
+                <li><i class="fas fa-check-circle"></i> Почти индивидуальный формат</li>
+                <li><i class="fas fa-check-circle"></i> Психология голоса</li>
+                <li><i class="fas fa-check-circle"></i> Сценическая свобода</li>
             </ul>
-            <button class="kaspi-button">Kaspi Pay</button>
+            <button class="kaspi-button">
+                <i class="fas fa-wallet"></i> Kaspi Pay
+            </button>
         </div>
 
         <div class="course-card">
             <h3 class="course-title">Группа (до 10 чел)</h3>
             <div class="price">350,000 ₸</div>
             <ul>
-                <li>Рост вместе</li>
-                <li>Преодоление барьеров</li>
-                <li>Практика и поддержка</li>
+                <li><i class="fas fa-check-circle"></i> Рост вместе</li>
+                <li><i class="fas fa-check-circle"></i> Преодоление барьеров</li>
+                <li><i class="fas fa-check-circle"></i> Практика и поддержка</li>
             </ul>
-            <button class="kaspi-button">Kaspi Pay</button>
+            <button class="kaspi-button">
+                <i class="fas fa-wallet"></i> Kaspi Pay
+            </button>
         </div>
-
     </div>
 </section>
 
@@ -167,89 +203,156 @@
 <!-- ======================= ABOUT RADA ======================= -->
 <section id="about" class="about-rada">
     <div class="about-grid">
-
         <div class="about-photo">
             <img src="rada.jpg" alt="Rada Aubakirova">
+            <div class="about-photo-glow"></div>
         </div>
 
         <div class="about-content">
-            <h2>Рада Аубакирова</h2>
-            <p class="about-sub">Основатель международной школы терапевтического вокала</p>
+            <h2>
+                <i class="fas fa-user-circle"></i> Рада Аубакирова
+            </h2>
+            <p class="about-sub">
+                <i class="fas fa-rocket"></i> Основатель международной школы терапевтического вокала
+            </p>
+
+            <div class="about-badges">
+                <span><i class="fas fa-music"></i> Певица</span>
+                <span><i class="fas fa-brain"></i> Психолог</span>
+                <span><i class="fas fa-graduation-cap"></i> Педагог</span>
+                <span><i class="fas fa-heart"></i> Мать 4 детей</span>
+            </div>
 
             <p class="about-text">Певица, композитор, режиссёр, психолог и трансформационный педагог.</p>
-
             <p class="about-text">Аубакирова Рада Сергеевна — жена и мама четырёх детей. Дипломированный психолог-сексолог, коуч ICU, ментор-наставник с более чем 10-летним консультативным опытом.</p>
-
             <p class="about-text">Создала собственный подход, объединивший вокал, психологию, телесные практики и работу с эмоциональными блоками. Разработала и запатентовала уникальную методику «Терапевтический вокал», трансформирующую голос, состояние и внутреннюю свободу человека.</p>
-
             <p class="about-text">Более 2000 учеников по всему миру прошли через обучение под её руководством — от тех, кто никогда не пел, до профессиональных артистов, педагогов, спикеров и терапевтов.</p>
-
             <p class="about-text">Рада — певица и автор песен, призёр и лауреат международных конкурсов, режиссёр и организатор творческих мероприятий. Продюсер двух музыкальных групп и основатель творческой школы «Касиетті».</p>
-
             <p class="about-text">Её миссия — раскрывать голос как источник силы, уверенности и самореализации. Голос, который лечит. Голос, который звучит свободно.</p>
         </div>
-
     </div>
 </section>
 
 
 <!-- ======================= GAMES ======================= -->
 <section id="games" class="games">
-    <h2 class="section-title">Трансформационная игра "Мелодия души"</h2>
+    <h2 class="section-title">
+        <i class="fas fa-gamepad"></i> Трансформационная игра "Мелодия души"
+    </h2>
+    <p class="section-lead">Исследуйте свой внутренний мир через музыку и голос</p>
 
     <div class="game-grid">
-
         <div class="game-card">
             <h3>Индивидуальная игра</h3>
             <div class="price">108,000 ₸</div>
-            <button class="kaspi-button">Kaspi Pay</button>
+            <ul>
+                <li><i class="fas fa-check"></i> Персональный сеанс</li>
+                <li><i class="fas fa-check"></i> Глубинная проработка</li>
+            </ul>
+            <button class="kaspi-button">
+                <i class="fas fa-wallet"></i> Kaspi Pay
+            </button>
         </div>
 
         <div class="game-card">
             <h3>Групповая игра</h3>
             <div class="price">54,000 ₸</div>
-            <button class="kaspi-button">Kaspi Pay</button>
+            <ul>
+                <li><i class="fas fa-check"></i> До 6 участников</li>
+                <li><i class="fas fa-check"></i> Энергия группы</li>
+            </ul>
+            <button class="kaspi-button">
+                <i class="fas fa-wallet"></i> Kaspi Pay
+            </button>
         </div>
 
         <div class="game-card premium">
+            <div class="course-badge">
+                <i class="fas fa-crown"></i> Премиум
+            </div>
             <h3>Обучение игре</h3>
             <div class="price">1,200,000 ₸</div>
-            <button class="kaspi-button">Kaspi Pay</button>
+            <ul>
+                <li><i class="fas fa-check"></i> Станьте ведущим</li>
+                <li><i class="fas fa-check"></i> Сертификация</li>
+            </ul>
+            <button class="kaspi-button">
+                <i class="fas fa-wallet"></i> Kaspi Pay
+            </button>
         </div>
-
     </div>
-
 </section>
 
 
 <!-- ======================= FAQ ======================= -->
 <section id="faq" class="faq">
-    <h2 class="section-title">Часто задаваемые вопросы</h2>
+    <h2 class="section-title">
+        <i class="fas fa-question-circle"></i> Часто задаваемые вопросы
+    </h2>
+    <p class="section-lead">Ответы на популярные вопросы о терапевтическом вокале</p>
 
     <div class="faq-list">
         <div class="faq-item">
-            <h3 class="faq-question">Нужен ли опыт в вокале?</h3>
-            <p class="faq-answer">Нет, подход подходит как новичкам, так и профессионалам.</p>
+            <h3 class="faq-question">
+                <i class="fas fa-microphone"></i> Нужен ли опыт в вокале?
+            </h3>
+            <p class="faq-answer">Нет, подход подходит как новичкам, так и профессионалам. Мы работаем с голосом как с инструментом самовыражения, а не только пения.</p>
         </div>
 
         <div class="faq-item">
-            <h3 class="faq-question">Онлайн или оффлайн?</h3>
-            <p class="faq-answer">Доступны оба формата.</p>
+            <h3 class="faq-question">
+                <i class="fas fa-laptop-house"></i> Онлайн или оффлайн?
+            </h3>
+            <p class="faq-answer">Доступны оба формата. Онлайн-занятия проходят в Zoom с полным погружением, оффлайн — в студии в Алматы.</p>
         </div>
 
         <div class="faq-item">
-            <h3 class="faq-question">Когда видны результаты?</h3>
-            <p class="faq-answer">Первый прогресс — уже после нескольких занятий.</p>
+            <h3 class="faq-question">
+                <i class="fas fa-chart-line"></i> Когда видны результаты?
+            </h3>
+            <p class="faq-answer">Первый прогресс — уже после нескольких занятий. Полная трансформация происходит за 3-6 месяцев регулярной практики.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">
+                <i class="fas fa-users"></i> Есть ли возрастные ограничения?
+            </h3>
+            <p class="faq-answer">Мы работаем с людьми от 18 до 65 лет. Для подростков есть специальные программы.</p>
         </div>
     </div>
-
 </section>
 
 
 <!-- ======================= CTA ======================= -->
 <section id="contact" class="final-cta">
-    <h2 class="cta-title">Ваш голос — ваше влияние</h2>
-    <button class="cta-button large">Записаться</button>
+    <div class="cta-content">
+        <h2 class="cta-title">
+            <i class="fas fa-bullhorn"></i> Ваш голос — ваше влияние
+        </h2>
+        <p class="cta-subtitle">Начните свой путь к свободному звучанию уже сегодня</p>
+        <button class="cta-button large">
+            <i class="fas fa-calendar-alt"></i> Записаться на пробное занятие
+        </button>
+        <p class="cta-note">
+            <i class="fas fa-shield-alt"></i> Гарантия возврата средств в течение 7 дней
+        </p>
+    </div>
+    
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">Rada Vocal</div>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-copy">
+                © 2024 Международная школа терапевтического вокала. Все права защищены.
+            </div>
+        </div>
+    </footer>
 </section>
 
 
