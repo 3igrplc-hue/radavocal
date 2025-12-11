@@ -175,7 +175,7 @@ body{
     object-fit: contain;
 }
 
-/* Состояния скорости вращения */
+/* ВОССТАНАВЛИВАЕМ КЛАССЫ ДЛЯ УСКОРЕНИЯ ВРАЩЕНИЯ */
 .rotating-logo.fast {
     animation: rotateLogo 15s linear infinite;
     filter: brightness(1.5) saturate(1.4);
