@@ -782,4 +782,13 @@ body{
   .hero-title{font-size:26px;}
   .hero-subtitle{font-size:1rem;}
   .hero-pill{padding:10px 18px;font-size:0.85rem;}
-  .about-badges{justify
+  .about-badges{justify-content:center;}
+  .footer-links{gap:15px;}
+  .cta-title{font-size:28px;flex-direction:column;gap:8px;}
+  .cta-button.large{padding:16px 28px;font-size:1rem;}
+  
+  /* PATCH для меньших иконок в hero-pill на iPhone */
+  .hero-pill i {
+      font-size: 0.8rem !important;
+  }
+}
