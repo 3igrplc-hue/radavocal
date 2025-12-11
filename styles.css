@@ -137,7 +137,7 @@ body{
 .hero{
   position:relative;
   min-height:auto;
-  padding:10px 0 20px; /* Уменьшаем отступы сверху и снизу */
+  padding:20px 0 30px;
   overflow:hidden;
   background: 
     radial-gradient(circle at 50% 30%, rgba(255,220,170,0.03) 0%, transparent 25%),
@@ -153,7 +153,7 @@ body{
 /* ---------- PATCH: LOGO FIX FOR SAFARI ---------- */
 .rotating-logo {
     position: absolute;
-    top: 5%; /* Уменьшаем отступ сверху */
+    top: 8%; /* Нормальное положение для ПК */
     left: 50%;
     transform: translateX(-50%) rotate(0deg);
     width: 560px;
@@ -173,7 +173,8 @@ body{
     object-fit: contain;
 }
 
-/* ✅ ИСПРАВЛЕНИЕ: Классы для ускорения вращения */
+/* ✅ КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Классы для ускорения вращения */
+/* Используем !important для переопределения inline стилей */
 .rotating-logo.fast {
     animation: rotateLogo 15s linear infinite !important;
     filter: brightness(1.5) saturate(1.4) !important;
@@ -236,8 +237,8 @@ body{
     position: relative;
     width: 360px;
     height: 360px;
-    margin: 0 auto 10px; /* Уменьшаем отступ снизу */
-    margin-top: -30px;   /* Поднимаем фото ближе к логотипу */
+    margin: 0 auto 20px;
+    margin-top: -20px; /* Комфортное расстояние для ПК */
     z-index: 6;
     pointer-events: none;
 }
@@ -316,9 +317,9 @@ body{
 /* Основной контент героя */
 .hero-content {
     text-align: center;
-    margin: 0 auto !important; /* Убираем верхний отступ */
+    margin: 20px auto 0 !important;
     max-width: 720px;
-    padding-top: 10px;   /* Минимальный отступ */
+    padding-top: 20px;
     position: relative;
     z-index: 8;
 }
@@ -326,7 +327,7 @@ body{
 .hero-title{
   font-family:'Montserrat', sans-serif;font-weight:800;
   font-size:clamp(28px,5vw,44px);
-  margin:8px 0; /* Уменьшаем отступы */
+  margin:12px 0;
   line-height:1.1;
   text-shadow:0 12px 40px rgba(0,0,0,0.7);
 }
@@ -338,7 +339,7 @@ body{
 }
 .hero-subtitle{
   color: var(--muted);
-  margin:8px 0 16px; /* Уменьшаем отступы */
+  margin:14px 0 24px;
   font-size:1.1rem;
   display:flex;align-items:center;justify-content:center;gap:10px;
 }
@@ -348,7 +349,7 @@ body{
     display: flex;
     gap: 16px;
     justify-content: center;
-    margin-bottom: 20px; /* Уменьшаем отступ */
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 .btn-primary, .btn-secondary {
@@ -393,7 +394,7 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
-    margin-top: 20px; /* Уменьшаем отступ */
+    margin-top: 30px;
 }
 .hero-pill {
     padding: 14px 24px;
@@ -424,7 +425,7 @@ body{
 /* Скролл подсказка */
 .scroll-hint {
     position: absolute;
-    bottom: 20px; /* Поднимаем выше */
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     color: var(--gold-1);
@@ -736,12 +737,12 @@ body{
 @media (max-width: 980px){
   .rv-nav{display:none}
   .rv-burger{display:block}
-  .rotating-logo{width:420px;height:420px;top:4%;} /* Уменьшаем отступ сверху */
+  .rotating-logo{width:420px;height:420px;top:4%;} /* Меньше отступ сверху на планшетах */
   .singer-container{width:320px;height:320px;}
   .hero-content{
-    margin:20px auto 0; /* Уменьшаем отступ */
+    margin:10px auto 0; /* Уменьшаем отступ */
     text-align:center;
-    padding-top:15px; /* Уменьшаем отступ */
+    padding-top:10px;
   }
   .hero-title{font-size:32px;}
   .hero-buttons{flex-direction:column;align-items:center;}
@@ -751,30 +752,91 @@ body{
 
 @media (max-width: 768px){
   .features-grid,.courses-grid,.game-grid{grid-template-columns:1fr;}
-  .rotating-logo{width:360px;height:360px;top:3%;} /* Уменьшаем отступ сверху */
-  .singer-container{
-    width:280px;height:280px;
-    margin-top: -40px !important; /* Поднимаем фото ещё выше */
-  }
-  .hero{
-    padding:5px 0 15px; /* Уменьшаем отступы для мобильных */
-  }
-  .section-title{font-size:28px;}
-  .hero-content{
-    margin-top: 0 !important; /* Убираем отступ */
-    text-align:center;
-    padding:0 15px;
-    padding-top:5px !important; /* Минимальный отступ */
+  
+  /* ✅ КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Уменьшаем интервал между лого и фото на мобильных */
+  .rotating-logo{
+    width:380px;
+    height:380px;
+    top: 2% !important; /* Минимальный отступ сверху на мобильных */
   }
   
-  /* ✅ ПАТЧ #3 — MOBILE FIX — singer ближе к логотипу и текст ближе к певице */
-  .singer-container {
-      margin-top: -40px !important; /* Поднимаем ближе к лого */
+  .singer-container{
+    width:280px;
+    height:280px;
+    margin-top: -60px !important; /* Поднимаем фото ближе к лого */
   }
-  .hero-content {
-      margin-top: -10px !important;  /* Поднимаем текст ближе к певице */
-      padding-top: 0 !important;
+  
+  .hero{
+    padding:5px 0 20px; /* Уменьшаем отступы для мобильных */
+  }
+  
+  .section-title{font-size:28px;}
+  
+  .hero-content{
+    margin-top: -15px !important; /* Поднимаем текст ближе к фото */
+    text-align:center;
+    padding:0 15px;
+    padding-top:5px !important;
+  }
+  
+  .hero-title{
+    font-size:30px;
+    margin:5px 0;
+  }
+  
+  .hero-subtitle{
+    margin:8px 0 16px;
+  }
+  
+  .hero-buttons{
+    margin-bottom: 15px;
   }
 }
 
-@media (max-width:
+@media (max-width: 480px){
+  /* ✅ КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Ещё меньше интервал на маленьких экранах */
+  .rotating-logo{
+    width:320px;
+    height:320px;
+    top: 1% !important; /* Минимальный отступ */
+  }
+  
+  .singer-container{
+    width:240px;
+    height:240px;
+    margin-top: -50px !important; /* Поднимаем ещё выше */
+  }
+  
+  .hero-title{
+    font-size:26px;
+    margin:3px 0;
+  }
+  
+  .hero-subtitle{
+    font-size:1rem;
+    margin:6px 0 12px;
+  }
+  
+  .hero-pill{
+    padding:10px 18px;
+    font-size:0.85rem;
+  }
+  
+  .about-badges{justify-content:center;}
+  .footer-links{gap:15px;}
+  .cta-title{
+    font-size:28px;
+    flex-direction:column;
+    gap:8px;
+  }
+  
+  .cta-button.large{
+    padding:16px 28px;
+    font-size:1rem;
+  }
+  
+  /* PATCH для меньших иконок в hero-pill на iPhone */
+  .hero-pill i {
+      font-size: 0.8rem !important;
+  }
+}
