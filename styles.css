@@ -149,8 +149,15 @@ body{
   text-align: center;
 }
 
+/* ---------- HERO SPACER (замена canvas-якоря) ---------- */
+.hero-spacer {
+  width: 100%;
+  height: 140px; /* 👈 регулирует вертикальную посадку всей композиции */
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
 /* 🔥 ВРАЩАЮЩИЙСЯ ЛОГОТИП */
-/* ---------- PATCH: LOGO FIX FOR SAFARI ---------- */
 .rotating-logo {
     position: absolute;
     top: 8%; /* Нормальное положение для ПК */
@@ -160,7 +167,7 @@ body{
     height: 560px;
 
     /* САМОЕ ГЛАВНОЕ — Safari fix */
-    opacity: 0.35 !important;
+    opacity: 0.35;
     mix-blend-mode: screen;
     isolation: isolate;
 
