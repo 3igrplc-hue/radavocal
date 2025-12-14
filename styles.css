@@ -813,6 +813,54 @@ section[id] {
   scroll-margin-top: 90px;
 }
 
+/* ---------- Practices (Deep Techniques) ---------- */
+.practices{
+  padding:80px 0 60px;
+  background: rgba(42, 35, 32, 0.78);
+}
+
+.practices-grid{
+  width:94%;
+  max-width:1000px;
+  margin:50px auto 0;
+  display:grid;
+  gap:40px;
+  grid-template-columns:1fr 1fr;
+}
+
+.practice-card{
+  background: linear-gradient(145deg,
+    rgba(255,255,255,0.06),
+    rgba(0,0,0,0.14)
+  );
+  border-radius:20px;
+  padding:40px 34px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow);
+  text-align:center;
+}
+
+.practice-title{
+  font-family:'Montserrat';
+  font-size:1.8rem;
+  font-weight:800;
+  color:var(--gold-1);
+  margin-bottom:6px;
+  text-align:center;
+}
+
+.practice-sub{
+  font-style:italic;
+  color:var(--muted);
+  margin-bottom:22px;
+  text-align:center;
+}
+
+.practice-card p{
+  margin-bottom:14px;
+  line-height:1.65;
+}
+
 /* ---------- Адаптивность ---------- */
 @media (max-width: 1100px){
   .about-grid{grid-template-columns:1fr;gap:50px;}
@@ -843,6 +891,10 @@ section[id] {
   .hero-buttons{flex-direction:column;align-items:center;}
   .btn-primary, .btn-secondary{width:100%;max-width:300px;}
   .features-grid,.courses-grid,.game-grid{grid-template-columns:repeat(2,1fr);}
+  .practices-grid{
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
 }
 
 @media (max-width: 768px){
@@ -889,6 +941,20 @@ section[id] {
   
   .hero-buttons{
     margin-bottom: 15px;
+  }
+  
+  /* PATCH 3: Мобильная адаптация для Practices */
+  .practices-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .practice-card{
+    padding:32px 24px;
+  }
+
+  .practice-title{
+    font-size:1.6rem;
   }
 }
 
@@ -951,5 +1017,14 @@ section[id] {
       rgba(255,255,255,0.06),  /* 🔧 Ещё светлее на мобильных */
       rgba(0,0,0,0.12)
     );
+  }
+  
+  /* PATCH 3: Улучшение для маленьких экранов */
+  .practice-card{
+    padding:28px 20px;
+  }
+  
+  .practice-title{
+    font-size:1.4rem;
   }
 }
