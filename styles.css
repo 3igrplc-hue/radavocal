@@ -6,14 +6,14 @@
 /* ---------- Variables ---------- */
 :root{
   --bg-1: #0b0706;
-  --bg-2: #16100f;
+  --bg-2: #120F0A; /* 🔧 Тёплый чёрный вместо чисто чёрного */
   --panel:#1b1412;
-  --text: #f3eee8;
+  --text: #f1eee9; /* 🔧 Тёплый белый текст */
   --muted:#d8cdbf;
-  --gold-1:#d4a667;
+  --gold-1:#c9a45b; /* 🔧 Акцентное золото */
   --gold-2:#b9882e;
   --gold-3:#f5d7a1;
-  --gold-glow: rgba(212,166,103,0.35);
+  --gold-glow: rgba(201,164,91,0.35);
   --glass: rgba(255,255,255,0.03);
   --radius: 14px;
   --container: 1200px;
@@ -27,7 +27,18 @@ html,body{height:100%}
 body{
   margin:0;
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,var(--bg-1), #0e0b0a 80%);
+  /* 🔧 СКВОЗНОЙ ФОН С ГРАДИЕНТОМ И ТЕПЛОМ */
+  background:
+    /* Зернистость (премиум-эффект) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+    /* Радиальный градиент с золотым свечением сверху */
+    radial-gradient(
+      1200px 600px at 50% 0%,
+      rgba(201,164,91,0.18) 0%,
+      rgba(11,7,6,0.95) 60%
+    ),
+    /* Базовый тёплый чёрный */
+    #0B0907;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -38,6 +49,8 @@ body{
 
 /* Utility */
 .center{display:flex;align-items:center;justify-content:center}
+
+/* ==================== HEADER ==================== */
 
 /* ---------- Header ---------- */
 .rv-header{
@@ -133,15 +146,22 @@ body{
     justify-content: center;
 }
 
+/* ==================== HERO ==================== */
+
 /* ---------- HERO ---------- */
 .hero{
   position:relative;
   min-height:auto;
   padding:20px 0 30px;
   overflow:hidden;
+  /* 🔧 ГРАДИЕНТ ГЕРОЯ - ПРОДОЛЖЕНИЕ ОБЩЕГО ФОНА */
   background: 
-    radial-gradient(circle at 50% 30%, rgba(255,220,170,0.03) 0%, transparent 25%),
-    linear-gradient(180deg, #130f0e, #0b0706 60%);
+    radial-gradient(
+      800px 400px at 50% 40%,
+      rgba(201,164,91,0.25),
+      rgba(11,7,6,0.95) 80%
+    ),
+    radial-gradient(circle at 50% 30%, rgba(255,220,170,0.03) 0%, transparent 25%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -462,10 +482,17 @@ body{
   max-width:700px;margin-left:auto;margin-right:auto;font-size:1.05rem;
 }
 
+/* ==================== WHY CHOOSE ==================== */
+
 /* ---------- Why choose ---------- */
 .why-choose{
   padding:70px 0 50px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent 20%);
+  /* 🔧 ФОН С ГРАДИЕНТОМ - ПРОДОЛЖЕНИЕ АТМОСФЕРЫ */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.0),
+    rgba(0,0,0,0.85)
+  );
   position:relative;overflow:hidden;
 }
 .why-choose::before{
@@ -507,10 +534,24 @@ body{
   color:var(--muted);line-height:1.5;font-size:0.95rem;
 }
 
+/* ==================== COURSES ==================== */
+
 /* ---------- Courses ---------- */
 .courses{
   padding:70px 0 50px;
-  background:linear-gradient(180deg, transparent, rgba(255,255,255,0.015));
+  /* 🔧 ФОН С ТЁПЛОЙ ПРОЗРАЧНОСТЬЮ */
+  background-color: rgba(18, 15, 10, 0.85); /* Тёплый чёрный с прозрачностью */
+  position: relative;
+}
+.courses::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-1), transparent);
+  opacity: 0.3;
 }
 .courses-grid{
   width:94%;max-width:var(--container);margin:40px auto 0;
@@ -569,9 +610,17 @@ body{
   transform:translateY(-3px);box-shadow:0 15px 35px rgba(180,140,60,0.25);
 }
 
+/* ==================== ABOUT RADA ==================== */
+
 /* ---------- About Rada ---------- */
 .about-rada{
-  padding:80px 0;background:linear-gradient(180deg, transparent, rgba(255,255,255,0.02));
+  padding:80px 0;
+  /* 🔧 ФОН С МЯГКИМ ГРАДИЕНТОМ */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.0),
+    rgba(11,9,7,0.9)
+  );
 }
 .about-grid{
   width:94%;max-width:var(--container);margin:0 auto;
@@ -610,9 +659,13 @@ body{
   font-size:1.05rem;
 }
 
+/* ==================== GAMES ==================== */
+
 /* ---------- Games ---------- */
 .games{
-  padding:70px 0 50px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+  padding:70px 0 50px;
+  /* 🔧 ПРОЗРАЧНЫЙ ФОН С ЛЁГКОЙ ТЕКСТУРОЙ */
+  background: rgba(11,9,7,0.9);
 }
 .game-grid{
   width:94%;max-width:var(--container);margin:40px auto 0;
@@ -639,9 +692,17 @@ body{
 .game-card li{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
 .game-card li i{color:var(--gold-1);}
 
+/* ==================== FAQ ==================== */
+
 /* ---------- FAQ ---------- */
 .faq{
-  padding:70px 0 50px;background:linear-gradient(180deg,transparent, rgba(255,255,255,0.01));
+  padding:70px 0 50px;
+  /* 🔧 ФОН С ГРАДИЕНТНЫМ ПЕРЕХОДОМ */
+  background: linear-gradient(
+    to bottom,
+    rgba(11,9,7,0.8),
+    rgba(11,9,7,0.95)
+  );
 }
 .faq-list{
   width:94%;max-width:900px;margin:30px auto 0;
@@ -666,10 +727,13 @@ body{
 }
 .faq-item.open .faq-answer{max-height:300px;}
 
+/* ==================== FINAL CTA ==================== */
+
 /* ---------- Final CTA ---------- */
 .final-cta{
   padding:80px 0 30px;text-align:center;
-  background:linear-gradient(180deg,#211615,#110a09);
+  /* 🔧 ТЁМНЫЙ ФОН С ЗОЛОТИСТЫМ ПОДСВЕТОМ */
+  background: linear-gradient(180deg,#211615,#110a09);
   position:relative;overflow:hidden;
 }
 .final-cta::before{
@@ -701,9 +765,13 @@ body{
   display:flex;align-items:center;justify-content:center;gap:8px;
 }
 
+/* ==================== FOOTER ==================== */
+
 /* ---------- Footer ---------- */
 .site-footer{
   padding:30px 0 20px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.03);
+  /* 🔧 ТЁМНЫЙ ФОН ДЛЯ ФУТЕРА */
+  background: rgba(8,6,5,0.95);
 }
 .footer-inner{
   width:94%;max-width:var(--container);margin:0 auto;
@@ -738,6 +806,8 @@ body{
     z-index: 1 !important; /* canvas ниже всех */
     pointer-events: none; /* чтобы он не блокировал клики */
 }
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
 
 /* ---------- Адаптивность ---------- */
 @media (max-width: 1100px){
