@@ -161,7 +161,7 @@ body{
 .rotating-logo {
     position: absolute;
     top: 8%; /* Нормальное положение для ПК */
-    left: 50%;
+    left: 48%; /* 🔧 ПАТЧ: Сдвигаем логотип чуть влево (было 50%) */
     transform: translateX(-50%) rotate(0deg);
     width: 560px;
     height: 560px;
@@ -249,8 +249,8 @@ body{
     z-index: 6;
     pointer-events: none;
     
-    /* 🔧 ПАТЧ: Опускаем ВЕСЬ контейнер с фото Рады ниже */
-    transform: translateY(24px);
+    /* 🔧 ПАТЧ: Сдвигаем фото Рады вправо и опускаем меньше */
+    transform: translate(20px, 12px); /* translate(вправо на 20px, вниз на 12px) */
 }
 
 /* Фото с прозрачным фоном */
@@ -747,10 +747,17 @@ body{
 @media (max-width: 980px){
   .rv-nav{display:none}
   .rv-burger{display:block}
-  .rotating-logo{width:420px;height:420px;top:4%;} /* Меньше отступ сверху на планшетах */
+  .rotating-logo{
+    width:420px;
+    height:420px;
+    top:4%;
+    left: 48%; /* 🔧 Сохраняем сдвиг влево на планшетах */
+  }
   .singer-container{
     width:320px;
     height:320px;
+    /* 🔧 ПАТЧ: Для планшетов корректируем смещение */
+    transform: translate(15px, 10px); /* translate(вправо на 15px, вниз на 10px) */
   }
   .hero-content{
     margin:10px auto 0; /* Уменьшаем отступ */
@@ -771,6 +778,7 @@ body{
     width:380px;
     height:380px;
     top: 2% !important; /* Минимальный отступ сверху на мобильных */
+    left: 48%; /* 🔧 Сохраняем сдвиг влево на мобильных */
   }
   
   .singer-container{
@@ -778,8 +786,8 @@ body{
     height:280px;
     margin-top: -60px !important; /* Поднимаем фото ближе к лого */
     
-    /* 🔧 ПАТЧ: Мобильная корректировка - опускаем ВЕСЬ контейнер ещё ниже на мобильных */
-    transform: translateY(28px); /* На мобильных опускаем на 28px (чуть сильнее) */
+    /* 🔧 ПАТЧ: Для мобильных корректируем смещение */
+    transform: translate(10px, 8px); /* translate(вправо на 10px, вниз на 8px) */
   }
   
   .hero{
@@ -815,7 +823,51 @@ body{
     width:320px;
     height:320px;
     top: 1% !important; /* Минимальный отступ */
+    left: 48%; /* 🔧 Сохраняем сдвиг влево на маленьких экранах */
   }
+  
+  .singer-container{
+    width:240px;
+    height:240px;
+    margin-top: -50px !important; /* Поднимаем ещё выше */
+    
+    /* 🔧 ПАТЧ: Для маленьких экранов корректируем смещение */
+    transform: translate(8px, 6px); /* translate(вправо на 8px, вниз на 6px) */
+  }
+  
+  .hero-title{
+    font-size:26px;
+    margin:3px 0;
+  }
+  
+  .hero-subtitle{
+    font-size:1rem;
+    margin:6px 0 12px;
+  }
+  
+  .hero-pill{
+    padding:10px 18px;
+    font-size:0.85rem;
+  }
+  
+  .about-badges{justify-content:center;}
+  .footer-links{gap:15px;}
+  .cta-title{
+    font-size:28px;
+    flex-direction:column;
+    gap:8px;
+  }
+  
+  .cta-button.large{
+    padding:16px 28px;
+    font-size:1rem;
+  }
+  
+  /* PATCH для меньших иконок в hero-pill на iPhone */
+  .hero-pill i {
+      font-size: 0.8rem !important;
+  }
+}
   
   .singer-container{
     width:240px;
