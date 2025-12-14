@@ -52,7 +52,11 @@ body{
 
 /* ---------- Header ---------- */
 .rv-header{
-  position:sticky;top:0;z-index:120;
+  position: fixed; /* 🔧 PATCH 1: Заменяем sticky на fixed для лучшего UX */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* 🔧 PATCH 1: Увеличиваем z-index */
   background: linear-gradient(180deg, rgba(42, 35, 32, 0.95), rgba(42, 35, 32, 0.88)); /* 🔧 Осветлённый */
   border-bottom:1px solid rgba(212,166,103,0.1); /* 🔧 Более заметная граница */
   backdrop-filter: blur(12px);
@@ -801,6 +805,12 @@ body{
 #goldParticles {
     z-index: 1 !important; /* canvas ниже всех */
     pointer-events: none; /* чтобы он не блокировал клики */
+}
+
+/* 🔧 PATCH 1.1 — компенсация фиксированного header */
+/* Offset for anchor scroll because header is fixed */
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 /* ---------- Адаптивность ---------- */

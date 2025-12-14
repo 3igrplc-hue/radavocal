@@ -31,13 +31,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Закрытие при клике вне меню
         document.addEventListener('click', (e) => {
-            if (!burgerBtn.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileNav.classList.remove('open');
-                burgerBtn.classList.remove('open');
-                document.body.style.overflow = '';
-            }
+    if (
+        mobileNav.classList.contains('open') &&
+        !burgerBtn.contains(e.target) &&
+        !mobileNav.contains(e.target)
+    ) {
+        mobileNav.classList.remove('open');
+        burgerBtn.classList.remove('open');
+        document.body.style.overflow = '';
+    }
         });
     }
     
