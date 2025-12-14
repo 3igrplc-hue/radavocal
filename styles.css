@@ -5,20 +5,20 @@
 
 /* ---------- Variables ---------- */
 :root{
-  --bg-1: #0b0706;
-  --bg-2: #120F0A; /* 🔧 Тёплый чёрный вместо чисто чёрного */
-  --panel:#1b1412;
-  --text: #f1eee9; /* 🔧 Тёплый белый текст */
+  --bg-1: #1A1513; /* 🔧 Более светлый тёмный (было #0b0706) */
+  --bg-2: #2A2320; /* 🔧 Более светлый тёплый чёрный (было #120F0A) */
+  --panel:#2D2623;
+  --text: #f3eee8;
   --muted:#d8cdbf;
-  --gold-1:#c9a45b; /* 🔧 Акцентное золото */
+  --gold-1:#d4a667;
   --gold-2:#b9882e;
   --gold-3:#f5d7a1;
-  --gold-glow: rgba(201,164,91,0.35);
-  --glass: rgba(255,255,255,0.03);
+  --gold-glow: rgba(212,166,103,0.35);
+  --glass: rgba(255,255,255,0.05); /* 🔧 Более прозрачное стекло */
   --radius: 14px;
   --container: 1200px;
   --transition: 0.28s cubic-bezier(.2,.9,.2,1);
-  --shadow: 0 20px 60px rgba(0,0,0,0.6);
+  --shadow: 0 20px 60px rgba(0,0,0,0.5); /* 🔧 Более мягкая тень */
 }
 
 /* ---------- Reset & Base ---------- */
@@ -27,18 +27,18 @@ html,body{height:100%}
 body{
   margin:0;
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  /* 🔧 СКВОЗНОЙ ФОН С ГРАДИЕНТОМ И ТЕПЛОМ */
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН С ГРАДИЕНТОМ */
   background:
-    /* Зернистость (премиум-эффект) */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
-    /* Радиальный градиент с золотым свечением сверху */
+    /* Зернистость (более заметная) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    /* Более светлый радиальный градиент */
     radial-gradient(
       1200px 600px at 50% 0%,
-      rgba(201,164,91,0.18) 0%,
-      rgba(11,7,6,0.95) 60%
+      rgba(212,166,103,0.25) 0%,  /* 🔧 Более яркое золотое свечение */
+      rgba(42, 35, 32, 0.9) 60%   /* 🔧 Более светлый базовый цвет */
     ),
-    /* Базовый тёплый чёрный */
-    #0B0907;
+    /* Более светлый базовый цвет */
+    #2A2320;  /* 🔧 Вместо #0B0907 */
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -50,13 +50,11 @@ body{
 /* Utility */
 .center{display:flex;align-items:center;justify-content:center}
 
-/* ==================== HEADER ==================== */
-
 /* ---------- Header ---------- */
 .rv-header{
   position:sticky;top:0;z-index:120;
-  background: linear-gradient(180deg, rgba(8,6,5,0.95), rgba(8,6,5,0.88));
-  border-bottom:1px solid rgba(212,166,103,0.08);
+  background: linear-gradient(180deg, rgba(42, 35, 32, 0.95), rgba(42, 35, 32, 0.88)); /* 🔧 Осветлённый */
+  border-bottom:1px solid rgba(212,166,103,0.1); /* 🔧 Более заметная граница */
   backdrop-filter: blur(12px);
 }
 .rv-container{
@@ -124,15 +122,15 @@ body{
     flex-direction: column;
     gap: 12px;
     padding: 22px 20px;
-    background: linear-gradient(180deg, rgba(6,5,5,0.98), rgba(6,5,5,0.96));
-    border-top: 1px solid rgba(212,166,103,0.1);
+    background: linear-gradient(180deg, rgba(42, 35, 32, 0.98), rgba(42, 35, 32, 0.96)); /* 🔧 Осветлённый */
+    border-top: 1px solid rgba(212,166,103,0.12); /* 🔧 Более заметная граница */
     backdrop-filter: blur(20px);
 }
 .rv-mobile-menu.open { display: flex; }
 .rv-mobile-menu a {
     display: flex; align-items: center; gap: 12px;
     padding: 14px 0; color: var(--text); text-decoration: none;
-    font-weight: 600; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-weight: 600; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.06); /* 🔧 Осветлённый */
     transition: all var(--transition);
 }
 .rv-mobile-menu a:hover {
@@ -146,22 +144,20 @@ body{
     justify-content: center;
 }
 
-/* ==================== HERO ==================== */
-
 /* ---------- HERO ---------- */
 .hero{
   position:relative;
   min-height:auto;
   padding:20px 0 30px;
   overflow:hidden;
-  /* 🔧 ГРАДИЕНТ ГЕРОЯ - ПРОДОЛЖЕНИЕ ОБЩЕГО ФОНА */
+  /* 🔧 ОСВЕТЛЁННЫЙ ГРАДИЕНТ ГЕРОЯ */
   background: 
     radial-gradient(
       800px 400px at 50% 40%,
-      rgba(201,164,91,0.25),
-      rgba(11,7,6,0.95) 80%
+      rgba(212,166,103,0.35),  /* 🔧 Более яркое золотое свечение */
+      rgba(42, 35, 32, 0.85) 80%  /* 🔧 Более светлый тёмный цвет */
     ),
-    radial-gradient(circle at 50% 30%, rgba(255,220,170,0.03) 0%, transparent 25%);
+    radial-gradient(circle at 50% 30%, rgba(255,220,170,0.05) 0%, transparent 25%); /* 🔧 Более яркий */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -408,13 +404,13 @@ body{
     box-shadow: 0 20px 50px rgba(180,140,60,0.28);
 }
 .btn-secondary {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.1); /* 🔧 Более светлый */
     backdrop-filter: blur(10px);
     color: rgba(255,255,255,0.9);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.15); /* 🔧 Более заметная граница */
 }
 .btn-secondary:hover {
-    background: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.15); /* 🔧 Более светлый */
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
@@ -429,21 +425,21 @@ body{
 }
 .hero-pill {
     padding: 14px 24px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.1); /* 🔧 Более светлый */
     backdrop-filter: blur(10px);
     border-radius: 50px;
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.9);
     font-weight: 600;
     font-size: 0.95rem;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12); /* 🔧 Более заметная граница */
     display: flex;
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
 }
 .hero-pill:hover {
-    background: rgba(212,166,103,0.15);
-    border-color: rgba(212,166,103,0.3);
+    background: rgba(212,166,103,0.2); /* 🔧 Более яркое золотое свечение */
+    border-color: rgba(212,166,103,0.35); /* 🔧 Более заметная граница */
     transform: translateY(-3px);
 }
 
@@ -482,16 +478,14 @@ body{
   max-width:700px;margin-left:auto;margin-right:auto;font-size:1.05rem;
 }
 
-/* ==================== WHY CHOOSE ==================== */
-
 /* ---------- Why choose ---------- */
 .why-choose{
   padding:70px 0 50px;
-  /* 🔧 ФОН С ГРАДИЕНТОМ - ПРОДОЛЖЕНИЕ АТМОСФЕРЫ */
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН */
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.0),
-    rgba(0,0,0,0.85)
+    rgba(42, 35, 32, 0.4),  /* 🔧 Более прозрачный верх */
+    rgba(42, 35, 32, 0.8)   /* 🔧 Более светлый низ */
   );
   position:relative;overflow:hidden;
 }
@@ -504,9 +498,12 @@ body{
   display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 .feature-card{
-  background: linear-gradient(145deg, rgba(255,255,255,0.025), rgba(0,0,0,0.05));
+  background: linear-gradient(145deg, 
+    rgba(255,255,255,0.05),  /* 🔧 Более прозрачный верх */
+    rgba(0,0,0,0.1)          /* 🔧 Более светлый низ */
+  );
   border-radius:16px;padding:28px 24px;box-shadow:var(--shadow);
-  border:1px solid rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08); /* 🔧 Более заметная граница */
   text-align:center;transition:all var(--transition);
   position:relative;overflow:hidden;
 }
@@ -534,13 +531,11 @@ body{
   color:var(--muted);line-height:1.5;font-size:0.95rem;
 }
 
-/* ==================== COURSES ==================== */
-
 /* ---------- Courses ---------- */
 .courses{
   padding:70px 0 50px;
-  /* 🔧 ФОН С ТЁПЛОЙ ПРОЗРАЧНОСТЬЮ */
-  background-color: rgba(18, 15, 10, 0.85); /* Тёплый чёрный с прозрачностью */
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН */
+  background-color: rgba(42, 35, 32, 0.7);
   position: relative;
 }
 .courses::before {
@@ -558,8 +553,12 @@ body{
   display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 }
 .course-card{
-  position:relative;background:linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
-  padding:30px 26px;border-radius:20px;border:1px solid rgba(255,255,255,0.04);
+  position:relative;
+  background:linear-gradient(145deg, 
+    rgba(255,255,255,0.05),  /* 🔧 Более прозрачный верх */
+    rgba(0,0,0,0.1)          /* 🔧 Более светлый низ */
+  );
+  padding:30px 26px;border-radius:20px;border:1px solid rgba(255,255,255,0.08); /* 🔧 Более заметная граница */
   box-shadow: var(--shadow);
   overflow:hidden;transition:all var(--transition);
   display:flex;flex-direction:column;
@@ -610,16 +609,14 @@ body{
   transform:translateY(-3px);box-shadow:0 15px 35px rgba(180,140,60,0.25);
 }
 
-/* ==================== ABOUT RADA ==================== */
-
 /* ---------- About Rada ---------- */
 .about-rada{
   padding:80px 0;
-  /* 🔧 ФОН С МЯГКИМ ГРАДИЕНТОМ */
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН */
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.0),
-    rgba(11,9,7,0.9)
+    rgba(42, 35, 32, 0.5),  /* 🔧 Более прозрачный верх */
+    rgba(42, 35, 32, 0.85)  /* 🔧 Более светлый низ */
   );
 }
 .about-grid{
@@ -659,21 +656,22 @@ body{
   font-size:1.05rem;
 }
 
-/* ==================== GAMES ==================== */
-
 /* ---------- Games ---------- */
 .games{
   padding:70px 0 50px;
-  /* 🔧 ПРОЗРАЧНЫЙ ФОН С ЛЁГКОЙ ТЕКСТУРОЙ */
-  background: rgba(11,9,7,0.9);
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН */
+  background: rgba(42, 35, 32, 0.75);
 }
 .game-grid{
   width:94%;max-width:var(--container);margin:40px auto 0;
   display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 }
 .game-card{
-  background:linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
-  padding:28px 24px;border-radius:18px;border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(145deg, 
+    rgba(255,255,255,0.05),  /* 🔧 Более прозрачный верх */
+    rgba(0,0,0,0.1)          /* 🔧 Более светлый низ */
+  );
+  padding:28px 24px;border-radius:18px;border:1px solid rgba(255,255,255,0.08); /* 🔧 Более заметная граница */
   box-shadow:var(--shadow);transition:all var(--transition);
   display:flex;flex-direction:column;
 }
@@ -692,29 +690,31 @@ body{
 .game-card li{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
 .game-card li i{color:var(--gold-1);}
 
-/* ==================== FAQ ==================== */
-
 /* ---------- FAQ ---------- */
 .faq{
   padding:70px 0 50px;
-  /* 🔧 ФОН С ГРАДИЕНТНЫМ ПЕРЕХОДОМ */
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН */
   background: linear-gradient(
     to bottom,
-    rgba(11,9,7,0.8),
-    rgba(11,9,7,0.95)
+    rgba(42, 35, 32, 0.6),  /* 🔧 Более прозрачный верх */
+    rgba(42, 35, 32, 0.9)   /* 🔧 Более светлый низ */
   );
 }
 .faq-list{
   width:94%;max-width:900px;margin:30px auto 0;
 }
 .faq-item{
-  background:rgba(255,255,255,0.015);padding:20px 24px;
-  border-radius:16px;margin-bottom:16px;border-left:5px solid var(--gold-1);
-  border:1px solid rgba(255,255,255,0.04);transition:all 0.3s ease;
+  background: linear-gradient(145deg, 
+    rgba(255,255,255,0.05),  /* 🔧 Более прозрачный верх */
+    rgba(0,0,0,0.1)          /* 🔧 Более светлый низ */
+  );
+  padding:20px 24px;border-radius:16px;margin-bottom:16px;border-left:5px solid var(--gold-1);
+  border:1px solid rgba(255,255,255,0.08); /* 🔧 Более заметная граница */
+  transition:all 0.3s ease;
   cursor:pointer;
 }
 .faq-item:hover{
-  background:rgba(255,255,255,0.025);
+  background: rgba(255,255,255,0.08); /* 🔧 Более светлый */
   transform:translateX(8px);
 }
 .faq-question{
@@ -727,13 +727,11 @@ body{
 }
 .faq-item.open .faq-answer{max-height:300px;}
 
-/* ==================== FINAL CTA ==================== */
-
 /* ---------- Final CTA ---------- */
 .final-cta{
   padding:80px 0 30px;text-align:center;
-  /* 🔧 ТЁМНЫЙ ФОН С ЗОЛОТИСТЫМ ПОДСВЕТОМ */
-  background: linear-gradient(180deg,#211615,#110a09);
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН */
+  background: linear-gradient(180deg,#332825,#2A2320); /* 🔧 Более светлые оттенки */
   position:relative;overflow:hidden;
 }
 .final-cta::before{
@@ -765,13 +763,11 @@ body{
   display:flex;align-items:center;justify-content:center;gap:8px;
 }
 
-/* ==================== FOOTER ==================== */
-
 /* ---------- Footer ---------- */
 .site-footer{
   padding:30px 0 20px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.03);
-  /* 🔧 ТЁМНЫЙ ФОН ДЛЯ ФУТЕРА */
-  background: rgba(8,6,5,0.95);
+  /* 🔧 ОСВЕТЛЁННЫЙ ФОН */
+  background: rgba(42, 35, 32, 0.95);
 }
 .footer-inner{
   width:94%;max-width:var(--container);margin:0 auto;
@@ -806,8 +802,6 @@ body{
     z-index: 1 !important; /* canvas ниже всех */
     pointer-events: none; /* чтобы он не блокировал клики */
 }
-
-/* ==================== АДАПТИВНОСТЬ ==================== */
 
 /* ---------- Адаптивность ---------- */
 @media (max-width: 1100px){
@@ -937,5 +931,15 @@ body{
   /* PATCH для меньших иконок в hero-pill на iPhone */
   .hero-pill i {
       font-size: 0.8rem !important;
+  }
+  
+  /* 🔧 Осветлить фон карточек на мобильных */
+  .feature-card,
+  .course-card,
+  .game-card {
+    background: linear-gradient(145deg, 
+      rgba(255,255,255,0.06),  /* 🔧 Ещё светлее на мобильных */
+      rgba(0,0,0,0.12)
+    );
   }
 }
