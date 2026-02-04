@@ -426,36 +426,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(animationStyle);
     
-    /* ========== КНОПКИ ЗАПИСИ ========== */
-    const kaspiButtons = document.querySelectorAll('.kaspi-button, .cta-button');
-    
-    kaspiButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Эффект нажатия
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-            
-            // Симуляция записи (в реальном проекте здесь будет форма)
-            showNotification('Скоро с вами свяжутся для подтверждения записи!');
-            
-            // Плавный скролл к форме (если она есть)
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                const headerHeight = 70;
-                const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
     /* ========== УВЕДОМЛЕНИЯ ========== */
     function showNotification(message) {
         // Удаляем предыдущие уведомления
