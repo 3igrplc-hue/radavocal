@@ -72,6 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    /* ========== КНОПКИ ОПЛАТЫ / CTA (без блокировки ссылок) ========== */
+    document.querySelectorAll('.kaspi-button, .cta-button').forEach(button => {
+      button.addEventListener('click', function() {
+        // лёгкий эффект нажатия, но без preventDefault
+        this.style.transform = 'scale(0.97)';
+        setTimeout(() => { this.style.transform = ''; }, 140);
+      }, { passive: true });
+    });
+    
     /* ========== ВРАЩЕНИЕ ЛОГОТИПА ========== */
     const rotatingLogo = document.querySelector('.rotating-logo');
     let rotationSpeed = 1; // 1=normal, 2=fast, 3=faster
