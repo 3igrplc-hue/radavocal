@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
+            
+            // 🔧 PATCH: Защита от перехвата внешних ссылок
+            if (href.startsWith('http')) return;
             if (href === '#' || !href.startsWith('#')) return;
             
             const targetElement = document.querySelector(href);
